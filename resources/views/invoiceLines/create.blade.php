@@ -1,11 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div>
-  <h1>Create new invoice line</h1>
-
-  @if (session()->has('message'))
-    {{ session->get('message') }}
-  @endif
   @if ($errors->any())
     <ul>
       @foreach ($errors->all() as $error)
