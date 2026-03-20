@@ -3,6 +3,7 @@
 <div>
   <form method="POST" action="{{ route('invoiceLines.update', ['id'=>$viewData['invoiceLine']->getId()]) }}">
     @csrf
+    @method('PUT')
     <input type="number" name="unit_price" step="0.01" value="{{ $viewData['invoiceLine']->getUnitPrice() }}">
     <input type="number" name="discount" step="0.01" value="{{ $viewData['invoiceLine']->getDiscount() }}">
     <input type="number" name="quantity" step="1" value="{{ $viewData['invoiceLine']->getQuantity() }}">

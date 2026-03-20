@@ -54,7 +54,7 @@ class InvoiceController extends Controller
 
         $request->session()->flash('status', 'Success');
 
-        return back();
+        return back()->with(session()->flash('status', 'Success'));
     }
 
     public function delete(int $id): RedirectResponse
@@ -83,6 +83,6 @@ class InvoiceController extends Controller
             'office_id' => 'required'*/
         ]));
 
-        return redirect()->route('invoices.show', $invoice->getId());
+        return redirect()->route('invoices.show', $invoice->getId())->with(session()->flash('status', 'Success'));
     }
 }
