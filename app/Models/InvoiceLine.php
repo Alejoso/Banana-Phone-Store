@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 
 class InvoiceLine extends Model
 {
@@ -27,11 +26,6 @@ class InvoiceLine extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function setId(int $id): void
-    {
-        $this->attributes['id'] = $id;
     }
 
     public function getUnitPrice(): float
@@ -74,23 +68,23 @@ class InvoiceLine extends Model
         $this->attributes['reason'] = $reason;
     }
 
-    public function getInvoiceID(): int
+    public function getInvoiceId(): int
     {
         return $this->attributes['invoice_id'];
     }
 
     public function setInvoiceId(int $invoiceId): void
     {
-        $this->attributes['invoice_id'] = $invoice_id;
+        $this->attributes['invoice_id'] = $invoiceId;
     }
 
-    public function getPhoneId(): int
+    /*public function getPhoneId(): int
     {
         return $this->attributes['phone_id'];
     }
 
     public function setPhoneId(int $phoneId): void
     {
-        $this->attributes['phone_id'] = $phone_id;
-    }
+        $this->attributes['phone_id'] = $phoneId;
+    }*/
 }

@@ -22,58 +22,67 @@ class InvoiceController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Invoices';
-        $viewData['subtitle'] = 'Registered invoices.';
-        $viewData['invoice'] = Invoice::all();
+        $viewData['invoices'] = Invoice::all();
 
-        return view('invoice.index')->with('viewData', $viewData);
+        return view('invoices.index')->with('viewData', $viewData);
     }
 
     public function show(int $id): View
     {
         $viewData = [];
         $invoice = Invoice::findOrFail($id);
-        $viewData['title'] = $invoice->getDate();
-        $viewData['subtitle'] = $invoice->getDate().' - invoice details';
         $viewData['invoice'] = $invoice;
 
-        return view('invoice.show')->with('viewData', $viewData);
+        return view('invoices.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
-        $viewData = [];
-        $viewData['title'] = 'Register new invoice';
-
-        return view('invoice.create')->with('viewData', $viewData);
+        return view('invoices.create');
     }
 
     public function save(Request $request): RedirectResponse
     {
-        reqValidate($request);
+        $request->validate([
+            'date' => 'required',
+            'invoice_lines' => 'required'/*,
+            'custom_user_id => 'required',
+            'office_id' => 'required'*/
+        ]);
 
-        Invoice::create($request->all());
+        Invoice::create($request->only('date', 'invoice_lines'/*, 'custom_user_id', 'office_id'*/));
 
-        return back()->with('message', 'Invoice registered correctly.');
+        $request->session()->flash('status', 'Success');
+
+        return back();
     }
 
-    public function delete(int $id): View
+    public function delete(int $id): RedirectResponse
     {
         Invoice::destroy($id);
 
-        $viewData = [];
-        $viewData['title'] = 'Invoices';
-        $viewData['subtitle'] = 'Registered invoices';
-        $viewData['invoice'] = Invoice::all();
-
-        return view('invoice.index')->with('viewData', $viewData);
+        return back();
     }
 
-    public function addInvoiceLine(string $invoiceLine): View
+    public function edit(int $id): View
     {
         $viewData = [];
-        $viewData['title'] = 'Edit existing invoice';
+        $invoice = Invoice::findOrFail($id);
+        $viewData['invoice'] = $invoice;
 
-        return view('invoice.addInvoiceLine')->with('viewData', $viewData);
+        return view('invoices.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request, int $id): RedirectResponse
+    {
+        $invoice = Invoice::findOrFail($id);
+        $invoice->update($request->validate([
+            'date' => 'required',
+            'invoice_lines' => 'required'/*,
+            'custom_user_id => 'required',
+            'office_id' => 'required'*/
+        ]));
+
+        return redirect()->route('invoices.show', $invoice->getId());
     }
 }

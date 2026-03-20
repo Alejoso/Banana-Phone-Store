@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\InvoiceLineController;
 use Illuminate\Support\Facades\Route;
 
 // Invoice
-Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice.index');
-Route::get('/invoice/create', [InvoiceController::class, 'create'])->name('invoice.create');
-Route::post('/invoice/save', [InvoiceController::class, 'save'])->name('invoice.save');
-Route::put('/invoice/{id}/addInvoiceLine', [InvoiceController::class, 'addInvoiceLine'])->name('invoice.addInvoiceLine');
-Route::delete('/invoice/{id}/delete', [InvoiceController::class, 'delete'])->name('invoice.delete');
-Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
+Route::get('invoices', 'App\Http\Controllers\InvoiceController@index')->name('invoices.index');
+Route::get('invoices/create', 'App\Http\Controllers\InvoiceController@create')->name('invoices.create');
+Route::post('invoices/save', 'App\Http\Controllers\InvoiceController@save')->name('invoices.save');
+Route::get('invoices/{id}', 'App\Http\Controllers\InvoiceController@show')->name('invoices.show');
+Route::get('invoices/{id}/edit', 'App\Http\Controllers\InvoiceController@edit')->name('invoices.edit');
+Route::put('invoices/{id}/update', 'App\Http\Controllers\InvoiceController@update')->name('invoices.update');
+Route::delete('invoices/{id}/delete', 'App\Http\Controllers\InvoiceController@delete')->name('invoices.delete');
 
 // InvoiceLine
-Route::get('/invoiceLine', [InvoiceLineController::class, 'index'])->name('invoiceLine.index');
-Route::get('/invoiceLine/create', [InvoiceLineController::class, 'create'])->name('invoiceLine.create');
-Route::post('/invoiceLine/save', [InvoiceLineController::class, 'save'])->name('invoiceLine.save');
-Route::delete('/invoiceLine/{id}/delete', [InvoiceLineController::class, 'delete'])->name('invoiceLine.delete');
-Route::get('/invoiceLine/{id}', [InvoiceLineController::class, 'show'])->name('invoiceLine.show');
+Route::get('invoiceLines', 'App\Http\Controllers\InvoiceLineController@index')->name('invoiceLines.index');
+Route::get('invoiceLines/create', 'App\Http\Controllers\InvoiceLineController@create')->name('invoiceLines.create');
+Route::post('invoiceLines/save', 'App\Http\Controllers\InvoiceLineController@save')->name('invoiceLines.save');
+Route::get('invoiceLines/{id}', 'App\Http\Controllers\InvoiceLineController@show')->name('invoiceLines.show');
+Route::get('invoiceLines/{id}/edit', 'App\Http\Controllers\InvoiceLineController@edit')->name('invoiceLines.edit');
+Route::put('invoiceLines/{id}/update', 'App\Http\Controllers\InvoiceLineController@update')->name('invoiceLines.update');
+Route::delete('invoiceLines/{id}/delete', 'App\Http\Controllers\InvoiceLineController@delete')->name('invoiceLines.delete');
