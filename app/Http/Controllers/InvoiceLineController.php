@@ -11,7 +11,7 @@ class InvoiceLineController extends Controller
 {
     private function reqValidate(Request $request): void
     {
-        $request->valdate([
+        $request->validate([
             'unit_price' => 'required',
             'discount' => 'required',
             'quantity' => 'required',
