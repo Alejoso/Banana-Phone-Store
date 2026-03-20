@@ -10,7 +10,7 @@
   @endif
 
   <!--Form-->
-  <form method="POST" action="{{ route('invoiceLine.save') }}">
+  <form method="POST" action="{{ route('invoiceLines.save') }}">
     @csrf
     <input type="number" placeholder="Unit price (allows decimals)" step="0.01" min="1.00" name="unit_price" value="{{ old('unit_price') }}">
     <input type="number" placeholder="Discount (allows decimals)" step="0.01" min="0.00" name="discount" value="{{ old('discount') }}">

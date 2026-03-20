@@ -9,18 +9,6 @@ use Illuminate\View\View;
 
 class InvoiceLineController extends Controller
 {
-    private function reqValidate(Request $request): void
-    {
-        $request->validate([
-            'unit_price' => 'required',
-            'discount' => 'required',
-            'quantity' => 'required',
-            'reason' => 'required',
-            'invoice_id' => 'required', /*
-            'phone_id' => 'required'*/
-        ]);
-    }
-
     public function index(): View
     {
         $viewData = [];
@@ -47,7 +35,14 @@ class InvoiceLineController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        reqValidate($request);
+        $request->validate([
+            'unit_price' => 'required',
+            'discount' => 'required',
+            'quantity' => 'required',
+            'reason' => 'required',
+            'invoice_id' => 'required', /*
+            'phone_id' => 'required'*/
+        ]);
 
         InvoiceLine::create($request->only('unit_price', 'discount', 'quantity', 'reason', 'invoice_id'/*, 'phone_id'*/));
 
@@ -76,7 +71,14 @@ class InvoiceLineController extends Controller
     public function update(Request $request, int $id): RedirectResponse
     {
         $invoiceLine = InvoiceLine::findOrFail($id);
-        $invoiceLine->update($request->validated());
+        $invoiceLine->update($request->validate([
+            'unit_price' => 'required',
+            'discount' => 'required',
+            'quantity' => 'required',
+            'reason' => 'required',
+            'invoice_id' => 'required', /*
+            'phone_id' => 'required'*/
+        ]));
 
         return redirect()->route('invoiceLines.show', $invoiceLine->getId());
     }

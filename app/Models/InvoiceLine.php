@@ -78,7 +78,7 @@ class InvoiceLine extends Model
         $this->attributes['invoice_id'] = $invoiceId;
     }
 
-    public function getPhoneId(): int
+    /*public function getPhoneId(): int
     {
         return $this->attributes['phone_id'];
     }
@@ -86,5 +86,5 @@ class InvoiceLine extends Model
     public function setPhoneId(int $phoneId): void
     {
         $this->attributes['phone_id'] = $phoneId;
-    }
+    }*/
 }

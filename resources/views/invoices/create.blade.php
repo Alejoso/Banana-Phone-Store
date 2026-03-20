@@ -15,7 +15,7 @@
   @endif
 
   <!--Form-->
-  <form method="POST" action="{{ route('invoice.save') }}">
+  <form method="POST" action="{{ route('invoices.save') }}">
     @csrf
     <label for="invoiceDate">Date: </label>
     <input type="date" placeholder="Date" name="date" value="{{ old('date') }}">

@@ -41,7 +41,7 @@ class Invoice extends Model
         $this->attributes['date'] = $date;
     }
 
-    public function getInvoiceLines(): array
+    public function getInvoiceLines(): string
     {
         return $this->attributes['invoice_lines'];
     }

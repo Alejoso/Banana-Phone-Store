@@ -43,7 +43,12 @@ class InvoiceController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        reqValidate($request);
+        $request->validate([
+            'date' => 'required',
+            'invoice_lines' => 'required'/*,
+            'custom_user_id => 'required',
+            'office_id' => 'required'*/
+        ]);
 
         Invoice::create($request->only('date', 'invoice_lines'/*, 'custom_user_id', 'office_id'*/));
 
@@ -71,7 +76,12 @@ class InvoiceController extends Controller
     public function update(Request $request, int $id): RedirectResponse
     {
         $invoice = Invoice::findOrFail($id);
-        $invoice->update($request->validated());
+        $invoice->update($request->validate([
+            'date' => 'required',
+            'invoice_lines' => 'required'/*,
+            'custom_user_id => 'required',
+            'office_id' => 'required'*/
+        ]));
 
         return redirect()->route('invoices.show', $invoice->getId());
     }
