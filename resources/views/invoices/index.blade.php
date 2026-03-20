@@ -1,13 +1,20 @@
 @extends('layouts.app')
 @section('content')
 <div>
-  @foreach ($viewData['invoice'] as $invoice)
+  @foreach ($viewData['invoices'] as $invoice)
     <div>
       <p>ID: {{ $invoice->getId() }}</p>
       <p>Date: {{ $invoice->getDate() }}</p>
       <p>Invoice lines: {{ $invoice->getInvoiceLines() }}</p>
       <p><a href="{{ route('invoice.show', ['id'=>$invoice->getId()]) }}">Details</a></p>
       <p><a href="{{ route('invoice.addInvoiceLine', ['id'=>$invoice->getId()]) }}">Edit invoice line</a></p>
+
+      <!--Delete invoice-->
+      <form method="POST" action="{{ route('invoiceLine.delete', $viewData['invoiceLine']->getId()) }}">
+        @csrf
+        @method('DELETE')
+        <button>Erase invoice line</button>
+      </form>
     </div>
   @endforeach
 </div>

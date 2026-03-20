@@ -24,37 +24,32 @@ class InvoiceLineController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Invoice lines';
-        $viewData['subtitle'] = 'All invoice lines';
-        $viewData['invoiceLine'] = InvoiceLine::all();
+        $viewData['invoiceLines'] = InvoiceLine::all();
 
-        return view('invoiceLine.index')->with('viewData', $viewData);
+        return view('invoiceLines.index')->with('viewData', $viewData);
     }
 
     public function show(int $id): View
     {
         $viewData = [];
         $invoiceLine = InvoiceLine::findOrFail($id);
-        $viewData['title'] = $invoiceLine->getReason();
-        $viewData['subtitle'] = $invoiceLine->getUnitPrice();
         $viewData['invoiceLine'] = $invoiceLine;
 
-        return view('invoiceLine.show')->with('viewData', $viewData);
+        return view('invoiceLines.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Register new invoice line';
 
-        return view('invoiceLine.create')->with('viewData', $viewData);
+        return view('invoiceLines.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse
     {
         reqValidate($request);
 
-        InvoiceLine::create($request->all());
+        InvoiceLine::create($request->only('unit_price', 'discount', 'quantity', 'reason', 'invoice_id'/*, 'phone_id'*/));
 
         return back()->with('message', 'Invoice Line created.');
     }
@@ -64,10 +59,25 @@ class InvoiceLineController extends Controller
         InvoiceLine::destroy($id);
 
         $viewData = [];
-        $viewData['title'] = 'Invoice lines';
-        $viewData['subtitle'] = 'All invoice lines';
-        $viewData['invoiceLine'] = InvoiceLine::all();
+        $viewData['invoiceLines'] = InvoiceLine::all();
 
-        return view('invoiceLine.index')->with('viewData', $viewData);
+        return view('invoiceLines.index')->with('viewData', $viewData);
+    }
+
+    public function edit(int $id): View
+    {
+        $viewData = [];
+        $invoiceLine = InvoiceLine::findOrFail($id);
+        $viewData['invoiceLine'] = $invoiceLine;
+
+        return view('invoiceLines.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request, int $id): RedirectResponse
+    {
+        $invoiceLine = InvoiceLine::findOrFail($id);
+        $invoiceLine->update($request->validated());
+
+        return redirect()->route('invoiceLines.show', $invoiceLine->getId());
     }
 }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('invoice_lines', function (Blueprint $table) {
             $table->id();
-            $table->integer('unit_price');
-            $table->integer('discount');
+            $table->float('unit_price');
+            $table->float('discount');
             $table->integer('quantity');
             $table->string('reason');
             $table->foreignId('invoice_id')->constrained('invoices')->onDelete('cascade');
