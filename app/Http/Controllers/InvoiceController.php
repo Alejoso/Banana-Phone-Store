@@ -2,23 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInvoiceRequest;
 use App\Models\Invoice;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class InvoiceController extends Controller
 {
-    // Form validation.
-    private function reqValidate(Request $request): void
-    {
-        $request->validate([
-            'date' => 'required', // ,
-            // 'custom_user_id' => 'required',
-            // 'office_id' => 'required',
-        ]);
-    }
-
     public function index(): View
     {
         $viewData = [];
@@ -41,20 +31,12 @@ class InvoiceController extends Controller
         return view('invoices.create');
     }
 
-    public function save(Request $request): RedirectResponse
+    public function save(StoreInvoiceRequest $request): RedirectResponse
     {
-        $request->validate([
-            'date' => 'required',
-            'invoice_lines' => 'required'/*,
-            'custom_user_id => 'required',
-            'office_id' => 'required'*/
-        ]);
+        $validatedInvoice = $request->validated();
+        Invoice::create($request->only($validatedInvoice));
 
-        Invoice::create($request->only('date', 'invoice_lines'/*, 'custom_user_id', 'office_id'*/));
-
-        $request->session()->flash('status', 'Success');
-
-        return back()->with(session()->flash('status', 'Success'));
+        return back();
     }
 
     public function delete(int $id): RedirectResponse
@@ -73,16 +55,13 @@ class InvoiceController extends Controller
         return view('invoices.edit')->with('viewData', $viewData);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(StoreInvoiceRequest $request, int $id): RedirectResponse
     {
-        $invoice = Invoice::findOrFail($id);
-        $invoice->update($request->validate([
-            'date' => 'required',
-            'invoice_lines' => 'required'/*,
-            'custom_user_id => 'required',
-            'office_id' => 'required'*/
-        ]));
+        $validatedInvoice = $request->validated();
 
-        return redirect()->route('invoices.show', $invoice->getId())->with(session()->flash('status', 'Success'));
+        $invoice = Invoice::findOrFail($id);
+        $invoice->update($validatedInvoice);
+
+        return redirect()->route('invoices.show', $invoice->getId());
     }
 }
