@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInvoiceLineRequest;
 use App\Models\InvoiceLine;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class InvoiceLineController extends Controller
@@ -33,20 +33,12 @@ class InvoiceLineController extends Controller
         return view('invoiceLines.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request): RedirectResponse
+    public function save(StoreInvoiceLineRequest $request): RedirectResponse
     {
-        $request->validate([
-            'unit_price' => 'required',
-            'discount' => 'required',
-            'quantity' => 'required',
-            'reason' => 'required',
-            'invoice_id' => 'required', /*
-            'phone_id' => 'required'*/
-        ]);
+        $validatedInvoiceLine = $request->validated();
+        InvoiceLine::create($validatedInvoiceLine);
 
-        InvoiceLine::create($request->only('unit_price', 'discount', 'quantity', 'reason', 'invoice_id'/*, 'phone_id'*/));
-
-        return back()->with('message', 'Invoice Line created.');
+        return back();
     }
 
     public function delete(int $id): View
@@ -68,17 +60,12 @@ class InvoiceLineController extends Controller
         return view('invoiceLines.edit')->with('viewData', $viewData);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(StoreInvoiceLineRequest $request, int $id): RedirectResponse
     {
+        $validatedInvoiceLine = $request->validated();
+
         $invoiceLine = InvoiceLine::findOrFail($id);
-        $invoiceLine->update($request->validate([
-            'unit_price' => 'required',
-            'discount' => 'required',
-            'quantity' => 'required',
-            'reason' => 'required',
-            'invoice_id' => 'required', /*
-            'phone_id' => 'required'*/
-        ]));
+        $invoiceLine->update($validatedInvoiceLine);
 
         return redirect()->route('invoiceLines.show', $invoiceLine->getId());
     }
