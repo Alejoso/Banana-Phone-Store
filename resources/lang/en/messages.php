@@ -44,6 +44,9 @@ return [
     'phonesOnDiscount' => 'Phones on Discount',
     'mostPurchasedPhones' => 'Most Purchased Phones',
     'totalPurchased' => 'Total Purchased',
+    'searchButton' => 'Search',
+    'searchPhonePlaceholder' => 'Search by name...',
+    'phoneNotFound' => 'No phones found with that name.',
 
     // Office class related
     'officeNameTitle' => 'Office',

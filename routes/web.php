@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
 Route::get('/phone', 'App\Http\Controllers\PhoneController@index')->name('phone.index');
+Route::get('/phone/search', 'App\Http\Controllers\PhoneController@search')->name('phone.search');
 Route::get('/phone/{id}', 'App\Http\Controllers\PhoneController@show')->name('phone.show');
 
 Route::get('/office', 'App\Http\Controllers\OfficeController@index')->name('office.index');

@@ -24,4 +24,13 @@ class PhoneController extends Controller
 
         return view('phone.show')->with('viewData', $viewData);
     }
+
+    public function search(): View
+    {
+        $viewData = [];
+        
+        $viewData['phones'] = Phone::with(['office'])->where('name', 'like', '%'.request('name').'%')->get();
+
+        return view('phone.index')->with('viewData', $viewData);
+    }
 }
