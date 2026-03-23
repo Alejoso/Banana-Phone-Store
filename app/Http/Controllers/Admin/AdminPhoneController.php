@@ -90,4 +90,13 @@ class AdminPhoneController extends Controller
 
         return redirect()->route('admin.phone.index');
     }
+
+    public function mostPurchased(): View
+    {
+        $viewData = [];
+
+        $viewData['phones'] = Phone::withSum('invoiceLines', 'quantity')->orderBy('invoice_lines_sum_quantity', 'desc')->take(5)->get();
+
+        return view('admin.phone.mostPurchased')->with('viewData', $viewData);
+    }
 }

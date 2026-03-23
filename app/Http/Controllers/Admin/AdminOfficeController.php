@@ -71,4 +71,15 @@ class AdminOfficeController extends Controller
 
         return redirect()->route('admin.office.index');
     }
+
+    public function topOffices(): View
+    {
+        $viewData = [];
+
+        $viewData['offices'] = Office::withCount('invoices')->orderBy('invoices_count', 'desc')->take(3)->get();
+
+        return view('admin.office.topOffices')->with('viewData', $viewData);
+    }
 }
+
+

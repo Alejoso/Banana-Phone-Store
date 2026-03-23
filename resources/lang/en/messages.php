@@ -41,12 +41,18 @@ return [
     'unitTitle' => 'Unit',
     'buyButton' => 'Purchase',
     'availableInTitle' => 'Available in',
+    'phonesOnDiscount' => 'Phones on Discount',
+    'mostPurchasedPhones' => 'Most Purchased Phones',
+    'totalPurchased' => 'Total Purchased',
 
     // Office class related
     'officeNameTitle' => 'Office',
     'addressTitle' => 'Address',
     'managerNameTitle' => 'Manager Name',
     'viewOfficeButton' => 'View office',
+    'topOffices' => 'Top 3 Best Offices',
+    'totalInvoices' => 'Total Invoices',
+    'officeName' => 'Office Name',
 
     // SavingsAccount class related
     'savingsAccountList' => 'Savings Account List',
@@ -58,6 +64,17 @@ return [
     'savingsAccountCreatedSuccessfully' => 'Savings account created successfully.',
     'savingsAccountDeletedSuccessfully' => 'Savings account deleted successfully.',
     'noSavingsAccountsFound' => 'No savings account found',
+
+    // Invoiceline class related
+    'invoiceLines' => 'Invoice Lines',
+    'invoiceLineDetails' => 'Invoice Line Details',
+    'createInvoiceLine' => 'Create Invoice Line',
+    'editInvoiceLine' => 'Edit Invoice Line',
+    'invoiceLabel' => 'Invoice',
+    'phoneLabel' => 'Phone',
+    'unitPriceTitle' => 'Unit Price',
+    'discountTitle' => 'Discount',
+    'reasonTitle' => 'Reason',
 
     // User class related
     'userList' => 'User List',
@@ -93,4 +110,10 @@ return [
     // User logout message
     'logoutSuccess' => 'Logged out successfully',
 
+    // Admin navigation
+    'dashboard' => 'Dashboard',
+    'phones' => 'Phones',
+    'offices' => 'Offices',
+    'users' => 'Users',
+    'invoices' => 'Invoices',
 ];
