@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Phone extends Model
@@ -173,5 +174,10 @@ class Phone extends Model
     public function office(): BelongsTo
     {
         return $this->belongsTo(Office::class);
+    }
+
+    public function invoiceLines(): HasMany
+    {
+        return $this->hasMany(InvoiceLine::class);
     }
 }

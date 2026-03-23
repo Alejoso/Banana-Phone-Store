@@ -2,6 +2,8 @@
 
 use App\Http\Middleware\AdminAuthMiddleware;
 use Illuminate\Support\Facades\Route;
+//Usar
+use Illuminate\Support\Facades\Auth;
 
 // Unregistered user Routes
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
@@ -51,6 +53,7 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () { // Check th
     Route::get('admin/phone', 'App\Http\Controllers\Admin\AdminPhoneController@index')->name('admin.phone.index');
     Route::get('admin/phone/create', 'App\Http\Controllers\Admin\AdminPhoneController@create')->name('admin.phone.create');
     Route::post('admin/phone/save', 'App\Http\Controllers\Admin\AdminPhoneController@save')->name('admin.phone.save');
+    Route::get('admin/phone/mostPurchased', 'App\Http\Controllers\Admin\AdminPhoneController@mostPurchased')->name('admin.phone.mostPurchased');
     Route::get('admin/phone/{id}', 'App\Http\Controllers\Admin\AdminPhoneController@show')->name('admin.phone.show');
     Route::delete('admin/phone/{id}', 'App\Http\Controllers\Admin\AdminPhoneController@destroy')->name('admin.phone.destroy');
     Route::get('admin/phone/{id}/edit', 'App\Http\Controllers\Admin\AdminPhoneController@edit')->name('admin.phone.edit');
@@ -60,6 +63,7 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () { // Check th
     Route::get('admin/office', 'App\Http\Controllers\Admin\AdminOfficeController@index')->name('admin.office.index');
     Route::get('admin/office/create', 'App\Http\Controllers\Admin\AdminOfficeController@create')->name('admin.office.create');
     Route::post('admin/office/save', 'App\Http\Controllers\Admin\AdminOfficeController@save')->name('admin.office.save');
+    Route::get('admin/office/top', 'App\Http\Controllers\Admin\AdminOfficeController@topOffices')->name('admin.office.topOffices');
     Route::get('admin/office/{id}', 'App\Http\Controllers\Admin\AdminOfficeController@show')->name('admin.office.show');
     Route::delete('admin/office/{id}', 'App\Http\Controllers\Admin\AdminOfficeController@destroy')->name('admin.office.destroy');
     Route::get('admin/office/{id}/edit', 'App\Http\Controllers\Admin\AdminOfficeController@edit')->name('admin.office.edit');

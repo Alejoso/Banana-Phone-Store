@@ -31,8 +31,20 @@
             </li>
 
             <li>
+                <a href="{{ route('admin.phone.mostPurchased') }}" class="nav-link text-secondary">
+                    {{ __('messages.mostPurchasedPhones') }}
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ route('admin.office.index') }}" class="nav-link text-secondary">
                     Offices
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.office.topOffices') }}" class="nav-link text-secondary">
+                    {{ __('messages.topOffices') }}
                 </a>
             </li>
 
@@ -45,6 +57,12 @@
             <li>
                 <a href="{{ route('admin.invoice.index') }}" class="nav-link text-secondary">
                     Invoices
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.invoiceLine.index') }}" class="nav-link text-secondary">
+                    {{ __('messages.invoiceLines') }}
                 </a>
             </li>
 
