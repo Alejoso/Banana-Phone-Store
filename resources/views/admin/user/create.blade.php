@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-secondary">Confirm Password</label>
+                        <label class="form-label text-secondary">{{ __('messages.confirmPasswordTitle') }}</label>
                         <input type="password" name="password_confirmation" 
                                class="form-control bg-dark text-light border-secondary">
                     </div>
@@ -78,14 +78,14 @@
 
                         <select name="role" class="form-select bg-dark text-light border-secondary">
 
-                            <option value="">Select role</option>
+                            <option value="">{{ __('messages.selectRoleTitle') }}</option>
 
-                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>
-                                Admin
+                            <option value="admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>
+                                {{ __('messages.adminRoleTitle') }}
                             </option>
 
-                            <option value="client" {{ old('role') == 'client' ? 'selected' : '' }}>
-                                Client
+                            <option value="client" {{ old('role') == 'Client' ? 'selected' : '' }}>
+                                {{ __('messages.clientRoleTitle') }}
                             </option>
 
                         </select>

@@ -7,7 +7,7 @@
         <div class="col-lg-8">
             <div class="card shadow-sm">
                 <div class="card-header text-center">
-                    <h2 class="mb-0">{{ __('Register') }}</h2>
+                    <h2 class="mb-0">{{ __('messages.registerTitle') }}</h2>
                 </div>
 
                 @if ($errors->any())
@@ -162,7 +162,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">{{ __('Password') }}</label>
+                                    <label for="password" class="form-label">{{ __('messages.passwordTitle') }}</label>
                                     <input
                                         id="password"
                                         type="password"
@@ -179,7 +179,7 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
+                                    <label for="password_confirmation" class="form-label">{{ __('messages.confirmPasswordTitle') }}</label>
                                     <input
                                         id="password_confirmation"
                                         type="password"
@@ -194,11 +194,11 @@
 
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <a href="{{ route('login') }}" class="btn btn-outline-secondary">
-                                {{ __('Back to Login') }}
+                                {{ __('messages.backToLoginButton') }}
                             </a>
 
                             <button type="submit" class="btn btn-dark">
-                                {{ __('Register') }}
+                                {{ __('messages.registerTitle') }}
                             </button>
                         </div>
                     </form>

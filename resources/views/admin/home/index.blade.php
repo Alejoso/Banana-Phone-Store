@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">Dashboard</h2>
+<h2 class="mb-4 text-warning">{{ __('messages.dashboard') }}</h2>
 
 <div class="row g-4">
 
@@ -9,14 +9,14 @@
     <div class="col-md-3">
         <div class="card bg-dark border-secondary text-light h-100">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Offices</h5>
+                <h5 class="card-title">{{ __('messages.offices') }}</h5>
 
                 <div class="mt-auto">
                     <a href="{{ route('admin.office.index') }}" class="btn btn-warning btn-sm w-100 mb-2">
-                        View
+                        {{ __('messages.viewButton') }}
                     </a>
                     <a href="{{ route('admin.office.create') }}" class="btn btn-outline-warning btn-sm w-100">
-                        Create
+                        {{ __('messages.createButton') }}
                     </a>
                 </div>
             </div>
@@ -27,14 +27,14 @@
     <div class="col-md-3">
         <div class="card bg-dark border-secondary text-light h-100">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Users</h5>
+                <h5 class="card-title">{{ __('messages.users') }}</h5>
 
                 <div class="mt-auto">
                     <a href="{{ route('admin.user.index') }}" class="btn btn-warning btn-sm w-100 mb-2">
-                        View
+                        {{ __('messages.viewButton') }}
                     </a>
                     <a href="{{ route('admin.user.create') }}" class="btn btn-outline-warning btn-sm w-100">
-                        Create
+                        {{ __('messages.createButton') }}
                     </a>
                 </div>
             </div>
@@ -45,11 +45,11 @@
     <div class="col-md-3">
         <div class="card bg-dark border-secondary text-light h-100">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Invoices</h5>
+                <h5 class="card-title">{{ __('messages.invoices') }}</h5>
 
                 <div class="mt-auto">
                     <a href="{{ route('admin.invoice.index') }}" class="btn btn-warning btn-sm w-100 mb-2">
-                        View
+                        {{ __('messages.viewButton') }}
                     </a>
                 </div>
             </div>
@@ -60,14 +60,14 @@
     <div class="col-md-3">
         <div class="card bg-dark border-secondary text-light h-100">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Phones</h5>
+                <h5 class="card-title">{{ __('messages.phones') }}</h5>
 
                 <div class="mt-auto">
                     <a href="{{ route('admin.phone.index') }}" class="btn btn-warning btn-sm w-100 mb-2">
-                        View
+                        {{ __('messages.viewButton') }}
                     </a>
                     <a href="{{ route('admin.phone.create') }}" class="btn btn-outline-warning btn-sm w-100">
-                        Create
+                        {{ __('messages.createButton') }}
                     </a>
                 </div>
             </div>

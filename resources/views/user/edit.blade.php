@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <h1>{{ __('messages.createUser') }}</h1>
+    <h1>{{ __('messages.editUser') }}</h1>
     <form method="POST" action="{{ route('user.update' , ['id' => $viewData['user']->getId()]) }}">
         @csrf
         @method('PUT')

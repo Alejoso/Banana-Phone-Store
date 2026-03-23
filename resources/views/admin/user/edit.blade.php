@@ -3,7 +3,7 @@
 
 @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Errores:</strong>
+        <strong>{{ __('messages.errorsTitle') }}</strong>
         <ul class="mb-0 mt-2">
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<h2 class="mb-4 text-warning">{{ __('messages.editButton') }} User</h2>
+<h2 class="mb-4 text-warning">{{ __('messages.editUser') }}</h2>
 
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
@@ -40,16 +40,15 @@
                                class="form-control bg-dark text-light border-secondary">
                     </div>
 
-                    
                     <div class="mb-3">
-                        <label class="form-label text-secondary">New Password</label>
+                        <label class="form-label text-secondary">{{ __('messages.newPasswordTitle') }}</label>
                         <input type="password" name="password"
                                class="form-control bg-dark text-light border-secondary">
-                        <small class="text-muted">Leave empty to keep current password</small>
+                        <small class="text-muted">{{ __('messages.keepCurrentPasswordHint') }}</small>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-secondary">Confirm Password</label>
+                        <label class="form-label text-secondary">{{ __('messages.confirmPasswordTitle') }}</label>
                         <input type="password" name="password_confirmation"
                             class="form-control bg-dark text-light border-secondary">
                     </div>
@@ -85,11 +84,11 @@
 
                         <select name="role" class="form-select bg-dark text-light border-secondary">
                             <option value="Admin" {{ $viewData['user']->getRole() == 'Admin' ? 'selected' : '' }}>
-                                Admin
+                                {{ __('messages.adminRoleTitle') }}
                             </option>
 
                             <option value="Client" {{ $viewData['user']->getRole() == 'Client' ? 'selected' : '' }}>
-                                Client
+                                {{ __('messages.clientRoleTitle') }}
                             </option>
                         </select>
                     </div>
@@ -119,7 +118,6 @@
 
             </div>
 
-            <!-- Actions -->
             <div class="d-flex gap-2 mt-3">
                 <button type="submit" class="btn btn-warning">
                     {{ __('messages.saveButton') }}

@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">Invoices</h2>
+<h2 class="mb-4 text-warning">{{ __('messages.invoices') }}</h2>
 
 <div class="table-responsive">
     <table class="table table-dark table-hover align-middle">
 
         <thead>
             <tr class="text-warning">
-                <th>ID</th>
-                <th>Date</th>
-                <th>User</th>
-                <th>Office</th>
-                <th class="text-end">Actions</th>
+                <th>{{ __('messages.idLabel') }}</th>
+                <th>{{ __('messages.dateTitle') }}</th>
+                <th>{{ __('messages.userLabel') }}</th>
+                <th>{{ __('messages.officeNameTitle') }}</th>
+                <th class="text-end">{{ __('messages.actionsLabel') }}</th>
             </tr>
         </thead>
 
@@ -26,19 +26,16 @@
 
                 <td class="text-end">
 
-                    <!-- View -->
                     <a href="{{ route('admin.invoice.show', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-warning">
-                        View
+                        {{ __('messages.viewButton') }}
                     </a>
 
-                    <!-- Edit -->
                     <a href="{{ route('admin.invoice.edit', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-light">
-                        Edit
+                        {{ __('messages.editButton') }}
                     </a>
 
-                    <!-- Delete -->
                     <form action="{{ route('admin.invoice.destroy', ['id'=> $invoice->getId()]) }}" 
                           method="POST" 
                           class="d-inline">
@@ -46,7 +43,7 @@
                         @method('DELETE')
 
                         <button class="btn btn-sm btn-danger">
-                            Delete
+                            {{ __('messages.deleteButton') }}
                         </button>
                     </form>
 

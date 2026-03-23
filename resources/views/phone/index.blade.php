@@ -1,6 +1,20 @@
 @extends('layouts.app')
 @section('content')
 <div class="container py-4">
+
+    <form method="GET" action="{{ route('phone.search') }}" class="mb-4 d-flex gap-2">
+        <input type="text" name="name" value="{{ request('name') }}" placeholder="{{ __('messages.searchPhonePlaceholder') }}" class="form-control">
+        <button type="submit" class="btn btn-dark">
+            {{ __('messages.searchButton') }}
+        </button>
+    </form>
+
+    @if (request('name') && $viewData['phones']->isEmpty())
+        <div class="alert alert-warning">
+            {{ __('messages.phoneNotFound') }}
+        </div>
+    @endif
+
     <div class="row g-4">
         @foreach ($viewData['phones'] as $phone)
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3">

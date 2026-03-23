@@ -50,7 +50,7 @@
                 <div class="card-body">
                     <div class="row g-3 align-items-end">
                         <div class="col-12 col-md-6">
-                            <label for="payment_account_id" class="form-label fw-semibold">
+                            <label class="form-label fw-semibold">
                                 {{ __('messages.selectPaymentAccountTitle') }}
                             </label>
                             <select name="savingsAccount" class="form-select" required>

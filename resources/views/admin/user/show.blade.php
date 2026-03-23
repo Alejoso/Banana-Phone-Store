@@ -9,7 +9,6 @@
 
         <div class="row">
 
-            <!-- Columna izquierda -->
             <div class="col-md-6">
 
                 <p><span class="text-secondary">{{ __('messages.idLabel') }}:</span> {{ $viewData['user']->getId() }}</p>
@@ -24,7 +23,6 @@
 
             </div>
 
-            <!-- Columna derecha -->
             <div class="col-md-6">
 
                 <p><span class="text-secondary">{{ __('messages.userFirstName') }}:</span> {{ $viewData['user']->getFirstName() }}</p>

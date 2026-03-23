@@ -17,8 +17,8 @@
                 <th>ID</th>
                 <th>Image</th>
                 <th>Name</th>
-                <th>Brand</th>
-                <th>Memory</th>
+                <th>Office</th>
+                <th>Stock</th>
                 <th>Price</th>
                 <th class="text-end">Actions</th>
             </tr>
@@ -39,8 +39,8 @@
                 </td>
 
                 <td>{{ $phone->getName() }}</td>
-                <td>{{ $phone->getBrand() }}</td>
-                <td>{{ $phone->getMemory() }}</td>
+                <td>{{ $phone->getOffice()->getName() }}</td>
+                <td>{{ $phone->getQuantity() }}</td>
                 <td>${{ $phone->getPrice() }}</td>
 
                 <td class="text-end">

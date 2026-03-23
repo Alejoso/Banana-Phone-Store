@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <h1>{{ __('messages.createSavingsAccount') }}</h1>
+    <h1>{{ __('messages.editSavingsAccount') }}</h1>
     <form method="POST" action="{{ route('savingsAccount.update' , ['id' => $viewData['savingsAccount']->getId()]) }}">
         @csrf
         @method('PUT')

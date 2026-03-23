@@ -75,7 +75,7 @@
                                     {{ __('messages.backButton') }}
                                 </a>
                                 <a href="{{ route('cart.add', ['id' => $viewData['phone']->getId()]) }}" class="btn btn-dark rounded-pill px-4">
-                                    {{ __('messages.addTocartButton') }}
+                                    {{ __('messages.addToCartButton') }}
                                 </a>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>{{ __('Reset Password') }}</h1>
+<h1>{{ __('messages.resetPasswordTitle') }}</h1>
 
 @if (session('status'))
     <p>{{ session('status') }}</p>
@@ -12,7 +12,7 @@
     @csrf
 
     <div>
-        <label for="email">{{ __('Email Address') }}</label>
+        <label for="email">{{ __('messages.emailAddressTitle') }}</label>
 
         <input 
             id="email" 
@@ -30,7 +30,7 @@
     </div>
 
     <button type="submit">
-        {{ __('Send Password Reset Link') }}
+        {{ __('messages.sendPasswordResetLinkButton') }}
     </button>
 
 </form>

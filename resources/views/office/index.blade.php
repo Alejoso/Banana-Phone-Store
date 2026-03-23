@@ -2,8 +2,8 @@
 @section('content')
 <div class="container py-5">
     <div class="mb-4 text-center">
-        <p class="text-muted mb-2">Our Offices</p>
-        <h1 class="fw-bold">Find our stores</h1>
+        <p class="text-muted mb-2">{{ __('messages.ourOfficesTitle') }}</p>
+        <h1 class="fw-bold">{{ __('messages.findOurStoresTitle') }}</h1>
     </div>
 
     <div class="row g-4">

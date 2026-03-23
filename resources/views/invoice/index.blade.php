@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('content')
 
-<h2 class="mb-4">Invoices</h2>
+<h2 class="mb-4">{{ __('messages.invoicesTitle') }}</h2>
 
 <div class="table-responsive">
     <table class="table table-hover align-middle">
 
         <thead>
             <tr class="text-warning">
-                <th>ID</th>
-                <th>Date</th>
-                <th>User</th>
-                <th>Office</th>
-                <th class="text-end">Actions</th>
+                <th>{{ __('messages.idTitle') }}</th>
+                <th>{{ __('messages.dateTitle') }}</th>
+                <th>{{ __('messages.userTitle') }}</th>
+                <th>{{ __('messages.officeTitle') }}</th>
+                <th class="text-end">{{ __('messages.actionsTitle') }}</th>
             </tr>
         </thead>
 
@@ -25,13 +25,10 @@
                 <td>{{ $invoice->office->getName() }}</td>
 
                 <td class="text-end">
-
-                    <!-- View -->
                     <a href="{{ route('invoice.show', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-warning">
-                        View
+                        {{ __('messages.viewButton') }}
                     </a>
-
                 </td>
             </tr>
             @endforeach
@@ -41,7 +38,7 @@
 
     <a href="{{ route('user.show' , ['id' => auth()->user()->getId()]) }}" 
        class="btn btn-danger">
-        Back
+        {{ __('messages.backButton') }}
     </a>
 </div>
 

@@ -6,7 +6,7 @@
 
 <div class="mb-3">
     <a href="{{ route('admin.user.create') }}" class="btn btn-warning">
-        {{ __('messages.createButton') ?? 'Create User' }}
+        {{ __('messages.createButton')}}
     </a>
 </div>
 

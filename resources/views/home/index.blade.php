@@ -6,20 +6,20 @@
     <div class="row align-items-center gy-4">
         <div class="col-md-6 text-center">
             <img src="{{ asset('images/logo-banana-phone.jpg') }}"
-                 alt="Banana Phone Store Logo"
+                 alt="{{ __('messages.homeLogoAlt') }}"
                  class="img-fluid rounded shadow"
                  style="max-height: 350px;">
         </div>
 
         <div class="col-md-6">
-            <h1 class="display-4 fw-bold">Banana Phone Store</h1>
+            <h1 class="display-4 fw-bold">{{ __('messages.homeTitle') }}</h1>
             <p class="lead text-secondary">
-                Tecnología, elegancia y los mejores celulares en un solo lugar.
+                {{ __('messages.homeSubtitle') }}
             </p>
 
             <div class="d-flex gap-2 flex-wrap">
                 <a href="{{ route('phone.index') }}" class="btn btn-dark">
-                    Ver catálogo
+                    {{ __('messages.viewCatalogButton') }}
                 </a>
             </div>
         </div>
@@ -28,17 +28,17 @@
     <hr class="my-5">
 
     <div class="text-center mb-4">
-        <h2 class="fw-bold">¿Por qué elegirnos?</h2>
-        <p class="text-secondary">Una tienda moderna para encontrar el equipo ideal.</p>
+        <h2 class="fw-bold">{{ __('messages.whyChooseUsTitle') }}</h2>
+        <p class="text-secondary">{{ __('messages.whyChooseUsSubtitle') }}</p>
     </div>
 
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Equipos premium</h5>
+                    <h5 class="card-title">{{ __('messages.premiumDevicesTitle') }}</h5>
                     <p class="card-text">
-                        Celulares modernos, elegantes y con excelente rendimiento.
+                        {{ __('messages.premiumDevicesDescription') }}
                     </p>
                 </div>
             </div>
@@ -47,9 +47,9 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Compra segura</h5>
+                    <h5 class="card-title">{{ __('messages.securePurchaseTitle') }}</h5>
                     <p class="card-text">
-                        Un proceso claro y confiable para tus compras.
+                        {{ __('messages.securePurchaseDescription') }}
                     </p>
                 </div>
             </div>
@@ -58,9 +58,9 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Atención de calidad</h5>
+                    <h5 class="card-title">{{ __('messages.qualityServiceTitle') }}</h5>
                     <p class="card-text">
-                        Te ayudamos a encontrar el producto que más te conviene.
+                        {{ __('messages.qualityServiceDescription') }}
                     </p>
                 </div>
             </div>
@@ -70,16 +70,16 @@
     <hr class="my-5">
 
     <div class="text-center">
-        <h2 class="fw-bold">Productos destacados</h2>
-        <p class="text-secondary mb-4">Explora algunos de nuestros dispositivos más llamativos.</p>
+        <h2 class="fw-bold">{{ __('messages.featuredProductsTitle') }}</h2>
+        <p class="text-secondary mb-4">{{ __('messages.featuredProductsSubtitle') }}</p>
 
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">iPhone</h5>
-                        <p class="card-text">Diseño premium y potencia excepcional.</p>
-                        <a href="{{ route('phone.index') }}" class="btn btn-dark">Ver más</a>
+                        <h5 class="card-title">{{ __('messages.featuredIphoneTitle') }}</h5>
+                        <p class="card-text">{{ __('messages.featuredIphoneDescription') }}</p>
+                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('messages.viewMoreButton') }}</a>
                     </div>
                 </div>
             </div>
@@ -87,9 +87,9 @@
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Samsung Galaxy</h5>
-                        <p class="card-text">Pantalla increíble y gran rendimiento.</p>
-                        <a href="{{ route('phone.index') }}" class="btn btn-dark">Ver más</a>
+                        <h5 class="card-title">{{ __('messages.featuredSamsungTitle') }}</h5>
+                        <p class="card-text">{{ __('messages.featuredSamsungDescription') }}</p>
+                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('messages.viewMoreButton') }}</a>
                     </div>
                 </div>
             </div>
@@ -97,9 +97,9 @@
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Accesorios</h5>
-                        <p class="card-text">Complementos ideales para tu dispositivo.</p>
-                        <a href="{{ route('phone.index') }}" class="btn btn-dark">Ver más</a>
+                        <h5 class="card-title">{{ __('messages.featuredAccessoriesTitle') }}</h5>
+                        <p class="card-text">{{ __('messages.featuredAccessoriesDescription') }}</p>
+                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('messages.viewMoreButton') }}</a>
                     </div>
                 </div>
             </div>
