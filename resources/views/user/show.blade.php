@@ -66,12 +66,19 @@
             </div>
         </div>
 
+        <div>
+            <a href="{{ route('invoice.index') }}" class="btn btn-warning">
+                {{ __('messages.seePurchaseHistory') }}
+            </a>
+        </div>
+        
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="btn btn-danger">Cerrar sesión</button>
         </form>
 
         
+
         <div class="col-12">
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">

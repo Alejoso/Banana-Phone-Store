@@ -2,10 +2,9 @@
 
 use App\Http\Middleware\AdminAuthMiddleware;
 use Illuminate\Support\Facades\Route;
-//Usar
 use Illuminate\Support\Facades\Auth;
 
-// Unregistered user Routes
+// Unregistered user
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
 Route::get('/phone', 'App\Http\Controllers\PhoneController@index')->name('phone.index');
@@ -14,11 +13,10 @@ Route::get('/phone/{id}', 'App\Http\Controllers\PhoneController@show')->name('ph
 Route::get('/office', 'App\Http\Controllers\OfficeController@index')->name('office.index');
 Route::get('/office/{id}', 'App\Http\Controllers\OfficeController@show')->name('office.show');
 
-Route::get('/invoice', 'App\Http\Controllers\InvoiceController@index')->name('invoice.index');
-Route::get('/invoice/{id}', 'App\Http\Controllers\InvoiceController@show')->name('invoice.show');
+// Authenticated user
 
 Route::middleware('auth')->group(function () {
-    // Cart rutes
+    // Cart
     Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
     Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
     Route::post('/cart/update/{id}', 'App\Http\Controllers\CartController@update')->name('cart.update');
@@ -27,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart/show/', 'App\Http\Controllers\CartController@show')->name('cart.show');
     Route::post('cart/purchase', 'App\Http\Controllers\PurchaseController@purchase')->name('purchase.purchase');
 
-    // Saving account routes
+    // Saving account
     Route::get('/savingsAccount', 'App\Http\Controllers\SavingsAccountController@index')->name('savingsAccount.index');
     Route::get('/savingsAccount/create', 'App\Http\Controllers\SavingsAccountController@create')->name('savingsAccount.create');
     Route::post('/savingsAccount', 'App\Http\Controllers\SavingsAccountController@save')->name('savingsAccount.save');
@@ -36,14 +34,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/savingsAccount/{id}/edit', 'App\Http\Controllers\SavingsAccountController@edit')->name('savingsAccount.edit');
     Route::put('/savingsAccount/{id}', 'App\Http\Controllers\SavingsAccountController@update')->name('savingsAccount.update');
 
-    // user rutes
+    // User
     Route::get('/user/{id}', 'App\Http\Controllers\UserController@show')->name('user.show');
     Route::get('/user/{id}/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
     Route::put('/user/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
 
+    // Invoice
+    Route::get('/invoice', 'App\Http\Controllers\InvoiceController@index')->name('invoice.index');
+    Route::get('/invoice/{id}', 'App\Http\Controllers\InvoiceController@show')->name('invoice.show');
+
 });
 
-// Admin Routes using Middleware
+// Admin
 
 Route::middleware([AdminAuthMiddleware::class])->group(function () { // Check this, it should be admin
 
@@ -75,15 +77,6 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () { // Check th
     Route::get('admin/invoice/{id}/edit', 'App\Http\Controllers\Admin\AdminInvoiceController@edit')->name('admin.invoice.edit');
     Route::put('admin/invoice/{id}', 'App\Http\Controllers\Admin\AdminInvoiceController@update')->name('admin.invoice.update');
     Route::delete('admin/invoice/{id}', 'App\Http\Controllers\Admin\AdminInvoiceController@destroy')->name('admin.invoice.destroy');
-
-    // InvoiceLine
-    Route::get('admin/invoiceLine', 'App\Http\Controllers\Admin\AdminInvoiceLineController@index')->name('admin.invoiceLine.index');
-    Route::get('admin/invoiceLine/create', 'App\Http\Controllers\Admin\AdminInvoiceLineController@create')->name('admin.invoiceLine.create');
-    Route::post('admin/invoiceLine/save', 'App\Http\Controllers\Admin\AdminInvoiceLineController@save')->name('admin.invoiceLine.save');
-    Route::get('admin/invoiceLine/{id}', 'App\Http\Controllers\Admin\AdminInvoiceLineController@show')->name('admin.invoiceLine.show');
-    Route::delete('admin/invoiceLine/{id}', 'App\Http\Controllers\Admin\AdminInvoiceLineController@destroy')->name('admin.invoiceLine.destroy');
-    Route::get('admin/invoiceLine/{id}/edit', 'App\Http\Controllers\Admin\AdminInvoiceLineController@edit')->name('admin.invoiceLine.edit');
-    Route::put('admin/invoiceLine/{id}', 'App\Http\Controllers\Admin\AdminInvoiceLineController@update')->name('admin.invoiceLine.update');
 
     // SavingsAccount
     Route::get('admin/savingsAccount', 'App\Http\Controllers\Admin\AdminSavingsAccountController@index')->name('admin.savingsAccount.index');

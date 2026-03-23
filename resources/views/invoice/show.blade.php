@@ -1,10 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
 
-<h2 class="mb-4 text-warning">Invoice #{{ $viewData['invoice']->getId() }}</h2>
+<h2 class="mb-4">Invoice #{{ $viewData['invoice']->getId() }}</h2>
 
-<div class="card bg-dark border-secondary text-light mb-4">
+<div class="card border-secondary mb-4">
     <div class="card-body">
 
         <div class="row">
@@ -27,13 +27,13 @@
 </div>
 
 <!-- Invoice Lines -->
-<div class="card bg-dark border-secondary text-light">
+<div class="card">
     <div class="card-body">
 
-        <h5 class="mb-3 text-warning">Invoice Lines</h5>
+        <h5 class="mb-3">Invoice Lines</h5>
 
         <div class="table-responsive">
-            <table class="table table-dark table-hover align-middle">
+            <table class="table table-hover align-middle">
 
                 <thead>
                     <tr class="text-warning">
@@ -81,22 +81,8 @@
 <!-- Actions -->
 <div class="mt-4 d-flex gap-2">
 
-    <a href="{{ route('admin.invoice.edit', $viewData['invoice']->getId()) }}" 
-       class="btn btn-outline-warning">
-        Edit
-    </a>
-
-    <form action="{{ route('admin.invoice.destroy', $viewData['invoice']->getId()) }}" method="POST">
-        @csrf
-        @method('DELETE')
-
-        <button type="submit" class="btn btn-danger">
-            Delete
-        </button>
-    </form>
-
-    <a href="{{ route('admin.invoice.index') }}" 
-       class="btn btn-outline-light">
+    <a href="{{ route('invoice.index') }}" 
+       class="btn btn-danger">
         Back
     </a>
 
