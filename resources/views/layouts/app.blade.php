@@ -51,6 +51,13 @@
                     <a class="nav-link active" href="{{ route('login') }}">{{ __('layout.loginButton') }}</a>
                 @endif
 
+                <form action="{{ route('language.switch') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-light btn-sm">
+                        {{ app()->getLocale() === 'es' ? 'EN' : 'ES' }}
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>

@@ -14,6 +14,8 @@ Route::get('/phone/{id}', 'App\Http\Controllers\PhoneController@show')->name('ph
 Route::get('/office', 'App\Http\Controllers\OfficeController@index')->name('office.index');
 Route::get('/office/{id}', 'App\Http\Controllers\OfficeController@show')->name('office.show');
 
+Route::post('/language-switch' , 'App\Http\Controllers\LanguageController@changeLanguage')->name('language.switch');
+
 // Authenticated user
 
 Route::middleware('auth')->group(function () {
@@ -48,7 +50,7 @@ Route::middleware('auth')->group(function () {
 
 // Admin
 
-Route::middleware([AdminAuthMiddleware::class])->group(function () { // Check this, it should be admin
+Route::middleware('admin')->group(function () { // Check this, it should be admin
 
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
 

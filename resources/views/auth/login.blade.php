@@ -39,7 +39,7 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label fw-semibold">
-                                {{ __('auth.passwordTitle') }}
+                                {{ __('user.passwordTitle') }}
                             </label>
 
                             <input
