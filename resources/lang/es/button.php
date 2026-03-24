@@ -16,7 +16,7 @@ return [
     'buyButton' => 'Comprar',
     'registerButton' => 'Crear cuenta',
     'logoutButton' => 'Cerrar sesión',
-    'loginButton'=> 'Iniciar sesión',
+    'loginButton' => 'Iniciar sesión',
     'backToLoginButton' => 'Volver al inicio de sesión',
     'sendPasswordResetLinkButton' => 'Enviar enlace para restablecer la contraseña',
     'requestAnotherVerificationButton' => 'Haz clic aquí para solicitar otro',

@@ -16,7 +16,7 @@ return [
     'buyButton' => 'Purchase',
     'registerButton' => 'Create Account',
     'logoutButton' => 'Log Out',
-    'loginButton'=> 'Log In',
+    'loginButton' => 'Log In',
     'backToLoginButton' => 'Back to Login',
     'sendPasswordResetLinkButton' => 'Send Password Reset Link',
     'requestAnotherVerificationButton' => 'Click here to request another',

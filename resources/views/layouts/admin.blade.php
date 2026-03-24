@@ -68,7 +68,7 @@
             <h5 class="mb-0 text-warning">{{ __('layout.adminPanelTitle') }}</h5>
 
             <span class="text-secondary">
-                {{ auth()->user()->name ?? __('layout.adminTitle') }}
+                {{ auth()->user()->getName() ?? __('layout.adminTitle') }}
             </span>
 
             <form action="{{ route('logout') }}" method="POST">

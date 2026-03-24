@@ -21,8 +21,8 @@
             <tr>
                 <td>#{{ $invoice->getId() }}</td>
                 <td>{{ $invoice->getDate() }}</td>
-                <td>{{ $invoice->user->getName() }}</td>
-                <td>{{ $invoice->office->getName() }}</td>
+                <td>{{ $invoice->getUser()->getName() }}</td>
+                <td>{{ $invoice->getOffice()->getName() }}</td>
 
                 <td class="text-end">
                     <a href="{{ route('invoice.show', ['id'=> $invoice->getId()]) }}" 

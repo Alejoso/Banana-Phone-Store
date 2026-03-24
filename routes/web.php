@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Middleware\AdminAuthMiddleware;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 // Unregistered user
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
@@ -14,7 +13,7 @@ Route::get('/phone/{id}', 'App\Http\Controllers\PhoneController@show')->name('ph
 Route::get('/office', 'App\Http\Controllers\OfficeController@index')->name('office.index');
 Route::get('/office/{id}', 'App\Http\Controllers\OfficeController@show')->name('office.show');
 
-Route::post('/language-switch' , 'App\Http\Controllers\LanguageController@changeLanguage')->name('language.switch');
+Route::post('/language-switch', 'App\Http\Controllers\LanguageController@changeLanguage')->name('language.switch');
 
 // Authenticated user
 

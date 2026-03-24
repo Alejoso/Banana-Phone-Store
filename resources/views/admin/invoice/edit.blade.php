@@ -47,7 +47,7 @@
                         @foreach($viewData['users'] as $user)
                             <option 
                                 value="{{ $user->getId() }}"
-                                {{ old('user_id', $viewData['invoice']->user->getId()) == $user->getId() ? 'selected' : '' }}
+                                {{ old('user_id', $viewData['invoice']->getUser()->getId()) == $user->getId() ? 'selected' : '' }}
                             >
                                 {{ $user->getName() }}
                             </option>
@@ -68,7 +68,7 @@
                         @foreach($viewData['offices'] as $office)
                             <option 
                                 value="{{ $office->getId() }}"
-                                {{ old('office_id', $viewData['invoice']->office->getId()) == $office->getId() ? 'selected' : '' }}
+                                {{ old('office_id', $viewData['invoice']->getOffice()->getId()) == $office->getId() ? 'selected' : '' }}
                             >
                                 {{ $office->getName() }}
                             </option>

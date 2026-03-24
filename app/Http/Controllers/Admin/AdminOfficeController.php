@@ -81,5 +81,3 @@ class AdminOfficeController extends Controller
         return view('admin.office.topOffices')->with('viewData', $viewData);
     }
 }
-
-

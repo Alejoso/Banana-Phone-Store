@@ -8,5 +8,5 @@ return [
     'users' => 'Usuarios',
     'invoices' => 'Facturas',
     'adminTitle' => 'Administrador',
-    
+
 ];

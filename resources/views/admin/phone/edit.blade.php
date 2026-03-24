@@ -95,7 +95,7 @@
                                     @foreach($viewData['offices'] as $office)
                                         <option 
                                             value="{{ $office->getId() }}"
-                                            @if($office->getId() == $viewData['phone']->office->getId()) selected @endif
+                                            @if($office->getId() == $viewData['phone']->getOffice()->getId()) selected @endif
                                         >
                                             {{ $office->getName() }}
                                         </option>
