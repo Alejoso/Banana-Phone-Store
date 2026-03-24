@@ -47,6 +47,14 @@
                     <a class="nav-link active" href="{{ route('user.show' , auth()->user()->getId()) }}">{{ __('layout.manageAccountButton') }}</a>
                 @endif
 
+                @if (auth()->check() && auth()->user()->role === 'Admin')
+                    <a class="nav-link active" href="{{ route('admin.home.index') }}">
+                        {{ __('layout.adminPanelTitle') }}
+                    </a>
+                @endif
+
+                
+
                 @if (!auth()->check())
                     <a class="nav-link active" href="{{ route('login') }}">{{ __('layout.loginButton') }}</a>
                 @endif

@@ -59,6 +59,18 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{ route('admin.phone.mostPurchased') }}" class="nav-link text-secondary">
+                    {{ __('phone.mostPurchasedPhones') }}
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('home.index') }}" class="nav-link text-secondary">
+                    {{ __('adminNavigation.homePage') }}
+                </a>
+            </li>
+
         </ul>
     </div>
 
