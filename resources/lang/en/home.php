@@ -23,5 +23,5 @@ return [
     'featuredAccessoriesDescription' => 'Ideal accessories for your device.',
     'viewMoreButton' => 'View More',
     'viewCatalogButton' => 'View Catalog',
-    
+
 ];

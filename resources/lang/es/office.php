@@ -1,7 +1,7 @@
 <?php
 
 return [
-    
+
     'officeNameTitle' => 'Oficina',
     'officeName' => 'Nombre de la oficina',
     'addressTitle' => 'Dirección',
@@ -18,6 +18,6 @@ return [
     'enterNamePlaceholder' => 'Ingrese el nombre',
     'enterAddressPlaceholder' => 'Ingrese la dirección',
     'enterManagerNamePlaceholder' => 'Ingrese el nombre del gerente',
-    'officesTitle'=> 'Oficinas',
+    'officesTitle' => 'Oficinas',
 
 ];

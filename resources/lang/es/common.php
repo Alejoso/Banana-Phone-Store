@@ -1,7 +1,7 @@
 <?php
 
 return [
-    
+
     'idLabel' => 'ID',
     'idTitle' => 'ID',
     'nameLabel' => 'Nombre',

@@ -18,6 +18,6 @@ return [
     'enterNamePlaceholder' => 'Enter name',
     'enterAddressPlaceholder' => 'Enter address',
     'enterManagerNamePlaceholder' => 'Enter manager name',
-    'officesTitle'=> 'Offices',
+    'officesTitle' => 'Offices',
 
 ];

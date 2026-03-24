@@ -14,11 +14,11 @@
             </div>
 
             <div class="col-md-4">
-                <p><span class="text-secondary">{{ __('common.userTitle') }}:</span> {{ $viewData['invoice']->user->getName() }}</p>
+                <p><span class="text-secondary">{{ __('common.userTitle') }}:</span> {{ $viewData['invoice']->getUser()->getName() }}</p>
             </div>
 
             <div class="col-md-4">
-                <p><span class="text-secondary">{{ __('common.officeTitle') }}:</span> {{ $viewData['invoice']->office->getName() }}</p>
+                <p><span class="text-secondary">{{ __('common.officeTitle') }}:</span> {{ $viewData['invoice']->getOffice()->getName() }}</p>
             </div>
 
         </div>
@@ -45,21 +45,15 @@
                 </thead>
 
                 <tbody>
-                    @php $total = 0; @endphp
 
-                    @foreach($viewData['invoice']->invoiceLines as $invoiceLine)
-
-                        @php
-                            $lineTotal = ($invoiceLine->getUnitPrice() * $invoiceLine->getQuantity()) * (1 - $invoiceLine->getDiscount());
-                            $total += $lineTotal;
-                        @endphp
+                    @foreach($viewData['invoice']->getInvoiceLines() as $invoiceLine)
 
                         <tr>
-                            <td>{{ $invoiceLine->phone->getName() }}</td>
+                            <td>{{ $invoiceLine->getPhone()->getName() }}</td>
                             <td>{{ $invoiceLine->getQuantity() }}</td>
                             <td>${{ $invoiceLine->getUnitPrice() }}</td>
                             <td>{{ $invoiceLine->getDiscount() * 100 }}%</td>
-                            <td>${{ $lineTotal }}</td>
+                            <td>${{ ($invoiceLine->getUnitPrice() * $invoiceLine->getQuantity()) * (1 - $invoiceLine->getDiscount()) }}</td>
                         </tr>
 
                     @endforeach
@@ -69,7 +63,7 @@
         </div>
 
         <div class="text-end mt-3">
-            <h4 class="text-warning">{{ __('cart.totalTitle') }}: ${{ $total }}</h4>
+            <h4 class="text-warning">{{ __('cart.totalTitle') }}: ${{ $viewData['total'] }}</h4>
         </div>
 
     </div>

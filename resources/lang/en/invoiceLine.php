@@ -8,5 +8,5 @@ return [
     'editInvoiceLine' => 'Edit Invoice Line',
     'unitPriceTitle' => 'Unit Price',
     'discountTitle' => 'Discount',
-    
+
 ];

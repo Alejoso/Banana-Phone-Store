@@ -3,7 +3,7 @@
 @section('content')
 
 <h2 class="mb-4 text-warning">
-    {{ __('invoice.invoiceLabel') }} #{{ $viewData['invoice']->getId() }}
+    {{ __('common.invoiceLabel') }} #{{ $viewData['invoice']->getId() }}
 </h2>
 
 <div class="card bg-dark border-secondary text-light mb-4">
@@ -21,14 +21,14 @@
             <div class="col-md-4">
                 <p>
                     <span class="text-secondary">{{ __('common.userLabel') }}:</span>
-                    {{ $viewData['invoice']->user->getName() }}
+                    {{ $viewData['invoice']->getUser()->getName() }}
                 </p>
             </div>
 
             <div class="col-md-4">
                 <p>
                     <span class="text-secondary">{{ __('office.officeNameTitle') }}:</span>
-                    {{ $viewData['invoice']->office->getName() }}
+                    {{ $viewData['invoice']->getOffice()->getName() }}
                 </p>
             </div>
 
@@ -40,7 +40,7 @@
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
 
-        <h5 class="mb-3 text-warning">{{ __('common.invoiceLines') }}</h5>
+        <h5 class="mb-3 text-warning">{{ __('invoiceLine.invoiceLines') }}</h5>
 
         <div class="table-responsive">
             <table class="table table-dark table-hover align-middle">
@@ -56,21 +56,15 @@
                 </thead>
 
                 <tbody>
-                    @php $total = 0; @endphp
 
-                    @foreach($viewData['invoice']->invoiceLines as $invoiceLine)
-
-                        @php
-                            $lineTotal = ($invoiceLine->getUnitPrice() * $invoiceLine->getQuantity()) * (1 - $invoiceLine->getDiscount());
-                            $total += $lineTotal;
-                        @endphp
+                    @foreach($viewData['invoice']->getInvoiceLines() as $invoiceLine)
 
                         <tr>
-                            <td>{{ $invoiceLine->phone->getName() }}</td>
+                            <td>{{ $invoiceLine->getPhone()->getName() }}</td>
                             <td>{{ $invoiceLine->getQuantity() }}</td>
                             <td>${{ $invoiceLine->getUnitPrice() }}</td>
                             <td>{{ $invoiceLine->getDiscount() * 100 }}%</td>
-                            <td>${{ $lineTotal }}</td>
+                            <td>${{ ($invoiceLine->getUnitPrice() * $invoiceLine->getQuantity()) * (1 - $invoiceLine->getDiscount()) }}</td>
                         </tr>
 
                     @endforeach
@@ -80,7 +74,7 @@
         </div>
 
         <div class="text-end mt-3">
-            <h4 class="text-warning">{{ __('cart.totalTitle') }}: ${{ $total }}</h4>
+            <h4 class="text-warning">{{ __('cart.totalTitle') }}: ${{ $viewData['total'] }}</h4>
         </div>
 
     </div>

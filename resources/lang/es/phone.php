@@ -21,5 +21,5 @@ return [
     'phoneDetails' => 'Detalles del teléfono',
     'unitTitle' => 'Unidad',
     'phonesTitle' => 'Teléfonos',
-    
-    ];
+
+];

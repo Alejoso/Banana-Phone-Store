@@ -21,6 +21,13 @@ class InvoiceController extends Controller
         $viewData = [];
         $viewData['invoice'] = Invoice::with(['user', 'office', 'invoiceLines'])->findOrFail($id);
 
+        $total = 0;
+        foreach ($viewData['invoice']->getInvoiceLines() as $invoiceLine) {
+            $total += $invoiceLine->getUnitPrice() * $invoiceLine->getQuantity() * (1 - $invoiceLine->getDiscount());
+        }
+
+        $viewData['total'] = $total;
+
         return view('invoice.show')->with('viewData', $viewData);
     }
 }
