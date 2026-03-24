@@ -8,5 +8,6 @@ return [
     'users' => 'Users',
     'invoices' => 'Invoices',
     'adminTitle' => 'Admin',
+    'homePage' => 'Home Page',
 
 ];

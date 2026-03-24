@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">{{ __('user.emailTitle') }}</label>
+                                    <label for="email" class="form-label">{{ __('common.emailTitle') }}</label>
                                     <input
                                         id="email"
                                         type="email"
