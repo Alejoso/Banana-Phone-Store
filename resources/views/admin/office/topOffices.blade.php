@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.topOffices') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('office.topOffices') }}</h2>
 
 <div class="table-responsive">
     <table class="table table-dark table-hover align-middle">
         <thead>
             <tr class="text-warning">
-                <th>{{ __('messages.idLabel') }}</th>
-                <th>{{ __('messages.officeName') }}</th>
-                <th>{{ __('messages.addressTitle') }}</th>
-                <th>{{ __('messages.totalInvoices') }}</th>
+                <th>{{ __('common.idLabel') }}</th>
+                <th>{{ __('office.officeName') }}</th>
+                <th>{{ __('office.addressTitle') }}</th>
+                <th>{{ __('office.totalInvoices') }}</th>
             </tr>
         </thead>
 

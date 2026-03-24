@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">Edit Phone</h2>
+<h2 class="mb-4 text-warning">{{ __('phone.editPhone') }}</h2>
 
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
@@ -24,7 +24,7 @@
                     >
 
                     <div>
-                        <label class="form-label text-secondary">Change Image</label>
+                        <label class="form-label text-secondary">{{ __('phone.changeImageTitle') }}</label>
                         <input type="file" name="image" 
                                class="form-control bg-dark text-light border-secondary">
                     </div>
@@ -36,33 +36,29 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <!-- Name -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Name</label>
+                                <label class="form-label text-secondary">{{ __('phone.nameLabel') }}</label>
                                 <input type="text" name="name"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getName() }}">
                             </div>
 
-                            <!-- Brand -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Brand</label>
+                                <label class="form-label text-secondary">{{ __('phone.brandTitle') }}</label>
                                 <input type="text" name="brand"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getBrand() }}">
                             </div>
 
-                            <!-- Memory -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Memory</label>
+                                <label class="form-label text-secondary">{{ __('phone.memoryTitle') }}</label>
                                 <input type="text" name="memory"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getMemory() }}">
                             </div>
 
-                            <!-- RAM -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">RAM</label>
+                                <label class="form-label text-secondary">{{ __('phone.ramTitle') }}</label>
                                 <input type="text" name="ram"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getRam() }}">
@@ -71,33 +67,29 @@
 
                         <div class="col-md-6">
 
-                            <!-- Battery -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Battery</label>
+                                <label class="form-label text-secondary">{{ __('phone.batteryTitle') }}</label>
                                 <input type="text" name="battery"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getBattery() }}">
                             </div>
 
-                            <!-- Price -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Price</label>
+                                <label class="form-label text-secondary">{{ __('phone.priceTitle') }}</label>
                                 <input type="number" name="price"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getPrice() }}">
                             </div>
 
-                            <!-- Quantity -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Stock</label>
+                                <label class="form-label text-secondary">{{ __('phone.stockTitle') }}</label>
                                 <input type="number" name="quantity"
                                        class="form-control bg-dark text-light border-secondary"
                                        value="{{ $viewData['phone']->getQuantity() }}">
                             </div>
 
-                            <!-- Office -->
                             <div class="mb-3">
-                                <label class="form-label text-secondary">Office</label>
+                                <label class="form-label text-secondary">{{ __('office.officeNameTitle') }}</label>
                                 <select name="office_id" 
                                         class="form-select bg-dark text-light border-secondary">
                                     @foreach($viewData['offices'] as $office)
@@ -119,14 +111,13 @@
 
             </div>
 
-            <!-- Actions -->
             <div class="d-flex gap-2 mt-3">
                 <button type="submit" class="btn btn-warning">
-                    Update
+                    {{ __('button.updateButton') }}
                 </button>
 
                 <a href="{{ route('admin.phone.index') }}" class="btn btn-outline-light">
-                    Cancel
+                    {{ __('button.cancelButton') }}
                 </a>
             </div>
 

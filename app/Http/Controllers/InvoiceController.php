@@ -10,7 +10,8 @@ class InvoiceController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['invoices'] = Invoice::with(['user', 'office'])->get();
+        $user = auth()->user();
+        $viewData['invoices'] = $user->getInvoices();
 
         return view('invoice.index')->with('viewData', $viewData);
     }

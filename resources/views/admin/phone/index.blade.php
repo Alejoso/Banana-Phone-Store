@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">Phones</h2>
+<h2 class="mb-4 text-warning">{{ __('phone.phonesTitle') }}</h2>
 
 <div class="mb-3">
     <a href="{{ route('admin.phone.create') }}" class="btn btn-warning">
-        Create Phone
+        {{ __('phone.createPhone') }}
     </a>
 </div>
 
@@ -14,13 +14,13 @@
 
         <thead>
             <tr class="text-warning">
-                <th>ID</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Brand</th>
-                <th>Memory</th>
-                <th>Price</th>
-                <th class="text-end">Actions</th>
+                <th>{{ __('common.idTitle') }}</th>
+                <th>{{ __('common.imageTitle') }}</th>
+                <th>{{ __('common.nameLabel') }}</th>
+                <th>{{ __('common.officeTitle') }}</th>
+                <th>{{ __('phone.stockTitle') }}</th>
+                <th>{{ __('phone.priceTitle') }}</th>
+                <th class="text-end">{{ __('common.actionsTitle') }}</th>
             </tr>
         </thead>
 
@@ -29,7 +29,6 @@
             <tr>
                 <td>{{ $phone->getId() }}</td>
 
-                <!-- Image -->
                 <td>
                     <img 
                         src="{{ asset('storage/'.$phone->getImage()) }}" 
@@ -39,25 +38,21 @@
                 </td>
 
                 <td>{{ $phone->getName() }}</td>
-                <td>{{ $phone->getBrand() }}</td>
-                <td>{{ $phone->getMemory() }}</td>
+                <td>{{ $phone->getOffice()->getName() }}</td>
+                <td>{{ $phone->getQuantity() }}</td>
                 <td>${{ $phone->getPrice() }}</td>
 
                 <td class="text-end">
-
-                    <!-- View -->
                     <a href="{{ route('admin.phone.show', ['id'=> $phone->getId()]) }}" 
                        class="btn btn-sm btn-outline-warning">
-                        View
+                        {{ __('button.viewButton') }}
                     </a>
 
-                    <!-- Edit -->
                     <a href="{{ route('admin.phone.edit', ['id'=> $phone->getId()]) }}" 
                        class="btn btn-sm btn-outline-light">
-                        Edit
+                        {{ __('button.editButton') }}
                     </a>
 
-                    <!-- Delete -->
                     <form action="{{ route('admin.phone.destroy', ['id'=> $phone->getId()]) }}" 
                           method="POST" 
                           class="d-inline">
@@ -65,10 +60,9 @@
                         @method('DELETE')
 
                         <button class="btn btn-sm btn-danger">
-                            Delete
+                            {{ __('button.deleteButton') }}
                         </button>
                     </form>
-
                 </td>
             </tr>
             @endforeach

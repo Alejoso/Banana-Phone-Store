@@ -8,9 +8,9 @@
         <div class="col-12">
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h2 class="mb-0">{{ __('messages.userDetails') }}</h2>
+                    <h2 class="mb-0">{{ __('user.userDetails') }}</h2>
                     <a href="{{ route('user.edit', $viewData['user']->getId()) }}" class="btn btn-warning">
-                        {{ __('messages.editButton') }}
+                        {{ __('button.editButton') }}
                     </a>
                 </div>
 
@@ -18,47 +18,47 @@
                     <div class="row">
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userName') }}:</strong>
+                            <strong>{{ __('user.userName') }}:</strong>
                             <div>{{ $viewData['user']->getName() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userEmail') }}:</strong>
+                            <strong>{{ __('user.userEmail') }}:</strong>
                             <div>{{ $viewData['user']->getEmail() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userNationalId') }}:</strong>
+                            <strong>{{ __('user.userNationalId') }}:</strong>
                             <div>{{ $viewData['user']->getNationalId() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userFirstName') }}:</strong>
+                            <strong>{{ __('user.userFirstName') }}:</strong>
                             <div>{{ $viewData['user']->getFirstName() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userLastName') }}:</strong>
+                            <strong>{{ __('user.userLastName') }}:</strong>
                             <div>{{ $viewData['user']->getLastName() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userRole') }}:</strong>
+                            <strong>{{ __('user.userRole') }}:</strong>
                             <div>{{ $viewData['user']->getRole() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userPhoneNumber') }}:</strong>
+                            <strong>{{ __('user.userPhoneNumber') }}:</strong>
                             <div>{{ $viewData['user']->getPhoneNumber() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userBirthday') }}:</strong>
+                            <strong>{{ __('user.userBirthday') }}:</strong>
                             <div>{{ $viewData['user']->getBirthday() }}</div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <strong>{{ __('messages.userAddress') }}:</strong>
+                            <strong>{{ __('user.userAddress') }}:</strong>
                             <div>{{ $viewData['user']->getAddress() }}</div>
                         </div>
                     </div>
@@ -66,18 +66,25 @@
             </div>
         </div>
 
+        <div>
+            <a href="{{ route('invoice.index') }}" class="btn btn-warning">
+                {{ __('user.seePurchaseHistory') }}
+            </a>
+        </div>
+        
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+            <button type="submit" class="btn btn-danger">{{ __('button.logoutButton') }}</button>
         </form>
 
         
+
         <div class="col-12">
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h2 class="mb-0">{{ __('messages.savingsAccountList') }}</h2>
+                    <h2 class="mb-0">{{ __('savingsAccount.savingsAccountList') }}</h2>
                     <a href="{{ route('savingsAccount.create') }}" class="btn btn-warning">
-                        {{ __('messages.createSavingsAccount') }}
+                        {{ __('savingsAccount.createSavingsAccount') }}
                     </a>
                 </div>
 
@@ -86,9 +93,9 @@
                         <table class="table table-striped table-hover align-middle mb-0">
                             <thead>
                                 <tr>
-                                    <th>{{ __('messages.idLabel') }}</th>
-                                    <th>{{ __('messages.savingsAccountType') }}</th>
-                                    <th>{{ __('messages.actionsLabel') }}</th>
+                                    <th>{{ __('common.idLabel') }}</th>
+                                    <th>{{ __('savingsAccount.savingsAccountType') }}</th>
+                                    <th>{{ __('common.actionsLabel') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,18 +106,18 @@
                                         <td>
                                             <div class="d-flex flex-wrap gap-2">
                                                 <a href="{{ route('savingsAccount.show', ['id' => $savingsAccount->getId()]) }}" class="btn btn-info btn-sm">
-                                                    {{ __('messages.viewButton') }}
+                                                    {{ __('button.viewButton') }}
                                                 </a>
 
                                                 <a href="{{ route('savingsAccount.edit', ['id' => $savingsAccount->getId()]) }}" class="btn btn-warning btn-sm">
-                                                    {{ __('messages.editButton') }}
+                                                    {{ __('button.editButton') }}
                                                 </a>
 
                                                 <form action="{{ route('savingsAccount.destroy', ['id' => $savingsAccount->getId()]) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">
-                                                        {{ __('messages.deleteButton') }}
+                                                        {{ __('button.deleteButton') }}
                                                     </button>
                                                 </form>
                                             </div>
@@ -119,7 +126,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="3" class="text-center text-muted">
-                                            {{ __('messages.noSavingsAccountsFound') }}
+                                            {{ __('savingsAccount.noSavingsAccountsFound') }}
                                         </td>
                                     </tr>
                                 @endforelse
@@ -129,7 +136,7 @@
 
                     <div class="mt-4">
                         <a href="{{ route('home.index') }}" class="btn btn-secondary">
-                            {{ __('messages.backButton') }}
+                            {{ __('button.backButton') }}
                         </a>
                     </div>
                 </div>

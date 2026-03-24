@@ -2,22 +2,22 @@
 
 @section('content')
 
-<h1>{{ __('Verify Your Email Address') }}</h1>
+<h1>{{ __('auth.verifyEmailAddressTitle') }}</h1>
 
 @if (session('resent'))
-    <p>{{ __('A fresh verification link has been sent to your email address.') }}</p>
+    <p>{{ __('auth.verificationLinkSentMessage') }}</p>
 @endif
 
-<p>{{ __('Before proceeding, please check your email for a verification link.') }}</p>
+<p>{{ __('auth.checkEmailForVerificationMessage') }}</p>
 
-<p>{{ __('If you did not receive the email') }}:</p>
+<p>{{ __('auth.didNotReceiveEmailMessage') }}:</p>
 
 <form method="POST" action="{{ route('verification.resend') }}">
 
     @csrf
 
     <button type="submit">
-        {{ __('Click here to request another') }}
+        {{ __('auth.requestAnotherVerificationButton') }}
     </button>
 
 </form>

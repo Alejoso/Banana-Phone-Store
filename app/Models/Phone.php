@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,6 +24,7 @@ class Phone extends Model
      * $this->attributes['created_at'] - string - timestamp of creation
      * $this->attributes['updated_at'] - string - timestamp of last update
      * $this->office - Office - contains the associated Office
+     * $this->invoiceLines - InvoiceLine[] - contains the associated invoice
      */
     protected $fillable = ['name', 'memory', 'ram', 'battery', 'brand', 'price', 'quantity', 'image', 'office_id'];
 
@@ -167,6 +169,16 @@ class Phone extends Model
     public function setOffice(Office $office): void
     {
         $this->office = $office;
+    }
+
+    public function getInvoiceLines(): Collection
+    {
+        return $this->invoiceLines;
+    }
+
+    public function setInvoiceLines(Collection $invoiceLines): void
+    {
+        $this->invoiceLines = $invoiceLines;
     }
 
     // Relations

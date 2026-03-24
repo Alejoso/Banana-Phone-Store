@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>{{ __('Confirm Password') }}</h1>
-<p>{{ __('Please confirm your password before continuing.') }}</p>
+<h1>{{ __('auth.confirmPasswordTitle') }}</h1>
+<p>{{ __('auth.confirmPasswordMessage') }}</p>
 
 <form method="POST" action="{{ route('password.confirm') }}">
 
     @csrf
 
     <div>
-        <label for="password">{{ __('Password') }}</label>
+        <label for="password">{{ __('auth.passwordTitle') }}</label>
 
         <input 
             id="password" 
@@ -25,14 +25,14 @@
     </div>
 
     <button type="submit">
-        {{ __('Confirm Password') }}
+        {{ __('auth.confirmPasswordTitle') }}
     </button>
 
 </form>
 
 @if (Route::has('password.request'))
     <a href="{{ route('password.request') }}">
-        {{ __('Forgot Your Password?') }}
+        {{ __('auth.forgotPasswordTitle') }}
     </a>
 @endif
 

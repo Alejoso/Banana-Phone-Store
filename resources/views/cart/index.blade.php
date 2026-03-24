@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container py-4">
-    <h2 class="mb-4">{{__('messages.shoppingCartTitle')}}</h2>
+    <h2 class="mb-4">{{__('cart.shoppingCartTitle')}}</h2>
 
     @if($viewData['cartProducts']->isEmpty())
         <div class="alert alert-info">
-            {{__('messages.cartIsEmptyTitle')}}
+            {{__('cart.cartIsEmptyTitle')}}
         </div>
     @else
         <div class="row g-4">
@@ -16,10 +16,10 @@
                         <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-3">
                             <div>
                                 <h5 class="mb-1">{{ $phone->getName() }}</h5>
-                                <p class="mb-1 text-muted">{{ __('messages.brandTitle') }}: {{ $phone->getBrand() }}</p>
-                                <p class="mb-1 text-muted">{{ __('messages.priceTitle')}}: ${{ $phone->getPrice() }}</p>
+                                <p class="mb-1 text-muted">{{ __('phone.brandTitle') }}: {{ $phone->getBrand() }}</p>
+                                <p class="mb-1 text-muted">{{ __('phone.priceTitle')}}: ${{ $phone->getPrice() }}</p>
                                 <p class="mb-0 fw-bold">
-                                    {{ __('messages.subtotalTitle') }}:
+                                    {{ __('cart.subtotalTitle') }}:
                                     ${{ $phone->getPrice() * ($viewData['cartProductData'][$phone->getId()] ?? 0) }}
                                 </p>
                             </div>
@@ -39,7 +39,7 @@
                                 </form>
 
                                 <a href="{{ route('cart.remove', ['id' => $phone->getId()]) }}" class="btn btn-outline-danger">
-                                    {{ __('messages.removeButton') }}
+                                    {{ __('button.removeButton') }}
                                 </a>
                             </div>
                         </div>
@@ -49,14 +49,14 @@
         </div>
 
         <div class="mt-4 d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">{{__('messages.totalTitle')}}: ${{ $viewData['total'] }}</h4>
+            <h4 class="mb-0">{{__('cart.totalTitle')}}: ${{ $viewData['total'] }}</h4>
 
             <a href="{{ route('cart.removeAll') }}" class="btn btn-danger">
-                {{ __('messages.removeAllButton') }}
+                {{ __('button.removeAllButton') }}
             </a>
 
             <a href="{{ route('cart.show') }}" class="btn btn-success">
-                {{ __('messages.buyButton') }}
+                {{ __('button.buyButton') }}
             </a>
         </div>
     @endif

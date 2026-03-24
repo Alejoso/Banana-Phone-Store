@@ -143,11 +143,11 @@ class ManagePurchase
             return back();
         }
 
-        // Validate and decrease balance
-        $this->decreaseBalance($invoiceLinesData, $request->input('savingsAccount'));
-
         // Validate and decrease inventory
         $this->decreaseInventory($invoiceLinesData, $phones);
+
+        // Validate and decrease balance
+        $this->decreaseBalance($invoiceLinesData, $request->input('savingsAccount'));
 
         // Create invoices on DB for each office related to the purchase, then relate the invoiceLines with the created invoice
         $this->createInvoiceAndInvoiceLines($invoiceLinesData, $phones);

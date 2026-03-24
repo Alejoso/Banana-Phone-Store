@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.mostPurchasedPhones') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('phone.mostPurchasedPhones') }}</h2>
 
 <div class="table-responsive">
     <table class="table table-dark table-hover align-middle">
         <thead>
             <tr class="text-warning">
-                <th>{{ __('messages.idLabel') }}</th>
-                <th>{{ __('messages.nameLabel') }}</th>
-                <th>{{ __('messages.brandTitle') }}</th>
-                <th>{{ __('messages.priceTitle') }}</th>
-                <th>{{ __('messages.totalPurchased') }}</th>
-                <th class="text-end">{{ __('messages.actionsLabel') }}</th>
+                <th>{{ __('common.idLabel') }}</th>
+                <th>{{ __('common.nameLabel') }}</th>
+                <th>{{ __('phone.brandTitle') }}</th>
+                <th>{{ __('phone.priceTitle') }}</th>
+                <th>{{ __('phone.totalPurchased') }}</th>
+                <th class="text-end">{{ __('common.actionsLabel') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@
                 <td class="text-end">
                     <a href="{{ route('admin.phone.show', ['id' => $phone->getId()]) }}"
                        class="btn btn-sm btn-outline-warning">
-                        {{ __('messages.viewButton') }}
+                        {{ __('button.viewButton') }}
                     </a>
                 </td>
             </tr>

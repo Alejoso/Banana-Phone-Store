@@ -2,9 +2,8 @@
 
 @section('content')
 
-<h2 class="mb-4 text-warning">Edit Invoice</h2>
+<h2 class="mb-4 text-warning">{{ __('invoice.editInvoice') }}</h2>
 
-<!-- Errors -->
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul class="mb-0">
@@ -26,7 +25,7 @@
 
                 <!-- Date -->
                 <div class="col-md-4 mb-3">
-                    <label class="form-label text-secondary">Date</label>
+                    <label class="form-label text-secondary">{{ __('common.dateTitle') }}</label>
                     <input 
                         type="date" 
                         name="date" 
@@ -40,7 +39,7 @@
 
                 <!-- User -->
                 <div class="col-md-4 mb-3">
-                    <label class="form-label text-secondary">User</label>
+                    <label class="form-label text-secondary">{{ __('common.userLabel') }}</label>
                     <select 
                         name="user_id" 
                         class="form-select bg-dark text-light border-secondary @error('user_id') is-invalid @enderror"
@@ -61,7 +60,7 @@
 
                 <!-- Office -->
                 <div class="col-md-4 mb-3">
-                    <label class="form-label text-secondary">Office</label>
+                    <label class="form-label text-secondary">{{ __('office.officeNameTitle') }}</label>
                     <select 
                         name="office_id" 
                         class="form-select bg-dark text-light border-secondary @error('office_id') is-invalid @enderror"
@@ -82,15 +81,14 @@
 
             </div>
 
-            <!-- Actions -->
             <div class="d-flex gap-2 mt-3">
                 <button type="submit" class="btn btn-warning">
-                    Update
+                    {{ __('button.updateButton') }}
                 </button>
 
                 <a href="{{ route('admin.invoice.show', $viewData['invoice']->getId()) }}" 
                    class="btn btn-outline-light">
-                    Cancel
+                    {{ __('button.cancelButton') }}
                 </a>
             </div>
 

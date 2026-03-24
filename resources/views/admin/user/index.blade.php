@@ -2,11 +2,11 @@
 
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.userList') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('user.userList') }}</h2>
 
 <div class="mb-3">
     <a href="{{ route('admin.user.create') }}" class="btn btn-warning">
-        {{ __('messages.createButton') ?? 'Create User' }}
+        {{ __('button.createButton')}}
     </a>
 </div>
 
@@ -15,9 +15,9 @@
 
         <thead>
             <tr class="text-warning">
-                <th>{{ __('messages.idLabel') }}</th>
-                <th>{{ __('messages.nameLabel') }}</th>
-                <th class="text-end">{{ __('messages.actionsLabel') }}</th>
+                <th>{{ __('common.idLabel') }}</th>
+                <th>{{ __('common.nameLabel') }}</th>
+                <th class="text-end">{{ __('common.actionsLabel') }}</th>
             </tr>
         </thead>
 
@@ -35,13 +35,13 @@
                     <!-- View -->
                     <a href="{{ route('admin.user.show', ['id' => $user->getId()]) }}" 
                        class="btn btn-sm btn-outline-warning">
-                        {{ __('messages.viewButton') }}
+                        {{ __('button.viewButton') }}
                     </a>
 
                     <!-- Edit -->
                     <a href="{{ route('admin.user.edit', ['id' => $user->getId()]) }}" 
                        class="btn btn-sm btn-outline-light">
-                        {{ __('messages.editButton') }}
+                        {{ __('button.editButton') }}
                     </a>
 
                     <!-- Delete -->
@@ -52,7 +52,7 @@
                         @method('DELETE')
 
                         <button type="submit" class="btn btn-sm btn-danger">
-                            {{ __('messages.deleteButton') }}
+                            {{ __('button.deleteButton') }}
                         </button>
                     </form>
 

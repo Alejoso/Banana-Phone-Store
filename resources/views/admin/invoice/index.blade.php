@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">Invoices</h2>
+<h2 class="mb-4 text-warning">{{ __('invoice.invoicesTitle') }}</h2>
 
 <div class="table-responsive">
     <table class="table table-dark table-hover align-middle">
 
         <thead>
             <tr class="text-warning">
-                <th>ID</th>
-                <th>Date</th>
-                <th>User</th>
-                <th>Office</th>
-                <th class="text-end">Actions</th>
+                <th>{{ __('common.idLabel') }}</th>
+                <th>{{ __('common.dateTitle') }}</th>
+                <th>{{ __('common.userLabel') }}</th>
+                <th>{{ __('office.officeNameTitle') }}</th>
+                <th class="text-end">{{ __('common.actionsLabel') }}</th>
             </tr>
         </thead>
 
@@ -26,19 +26,16 @@
 
                 <td class="text-end">
 
-                    <!-- View -->
                     <a href="{{ route('admin.invoice.show', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-warning">
-                        View
+                        {{ __('button.viewButton') }}
                     </a>
 
-                    <!-- Edit -->
                     <a href="{{ route('admin.invoice.edit', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-light">
-                        Edit
+                        {{ __('button.editButton') }}
                     </a>
 
-                    <!-- Delete -->
                     <form action="{{ route('admin.invoice.destroy', ['id'=> $invoice->getId()]) }}" 
                           method="POST" 
                           class="d-inline">
@@ -46,7 +43,7 @@
                         @method('DELETE')
 
                         <button class="btn btn-sm btn-danger">
-                            Delete
+                            {{ __('button.deleteButton') }}
                         </button>
                     </form>
 
