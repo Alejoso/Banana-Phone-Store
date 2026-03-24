@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'homeLogoAlt' => 'Banana Phone Store Logo',
     'homeTitle' => 'Banana Phone Store',
     'homeSubtitle' => 'Technology, elegance, and the best cell phones in one place.',
@@ -22,4 +23,5 @@ return [
     'featuredAccessoriesDescription' => 'Ideal accessories for your device.',
     'viewMoreButton' => 'View More',
     'viewCatalogButton' => 'View Catalog',
+    
 ];

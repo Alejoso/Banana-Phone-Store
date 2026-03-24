@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'adminPanelTitle' => 'Admin Panel',
     'bananaAdminTitle' => 'Banana Admin',
     'dashboardTitle' => 'Dashboard',
@@ -16,6 +17,5 @@ return [
     'viewPhonesButton' => 'View Phones',
     'manageAccountButton' => 'Manage Account',
     'loginButton' => 'Login',
-
 
 ];

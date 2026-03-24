@@ -27,5 +27,4 @@ return [
     'seePurchaseHistory' => 'See Purchase History',
     'passwordTitle' => 'Password',
 
-
 ];

@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'savingsAccountList' => 'Savings Account List',
     'savingsAccountDetails' => 'Savings Account Details',
     'createSavingsAccount' => 'Create Savings Account',
@@ -12,4 +13,5 @@ return [
     'savingsOption' => 'Savings',
     'checkingOption' => 'Checking',
     'otherOption' => 'Other',
+    
 ];

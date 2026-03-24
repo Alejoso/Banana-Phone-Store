@@ -22,5 +22,4 @@ return [
     'requestAnotherVerificationButton' => 'Click here to request another',
     'confirmPurchaseButton' => 'Confirm purchase',
 
-
 ];
