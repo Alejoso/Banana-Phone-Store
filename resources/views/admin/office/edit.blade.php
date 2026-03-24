@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.editOffice') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('office.editOffice') }}</h2>
 
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
@@ -13,7 +13,7 @@
 
             <!-- Name -->
             <div class="mb-3">
-                <label class="form-label text-secondary">{{ __('messages.nameLabel') }}</label>
+                <label class="form-label text-secondary">{{ __('common.nameLabel') }}</label>
                 <input 
                     type="text" 
                     name="name" 
@@ -24,7 +24,7 @@
 
             <!-- Address -->
             <div class="mb-3">
-                <label class="form-label text-secondary">{{ __('messages.addressTitle') }}</label>
+                <label class="form-label text-secondary">{{ __('office.addressTitle') }}</label>
                 <input 
                     type="text" 
                     name="address" 
@@ -35,7 +35,7 @@
 
             <!-- Manager -->
             <div class="mb-3">
-                <label class="form-label text-secondary">{{ __('messages.managerNameTitle') }}</label>
+                <label class="form-label text-secondary">{{ __('office.managerNameTitle') }}</label>
                 <input 
                     type="text" 
                     name="manager_name" 
@@ -48,11 +48,11 @@
             <div class="d-flex gap-2">
 
                 <button type="submit" class="btn btn-warning">
-                    {{ __('messages.updateButton') }}
+                    {{ __('button.updateButton') }}
                 </button>
 
                 <a href="{{ route('admin.office.index') }}" class="btn btn-outline-light">
-                    {{ __('messages.cancelButton') }}
+                    {{ __('button.cancelButton') }}
                 </a>
 
             </div>

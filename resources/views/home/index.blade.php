@@ -6,20 +6,20 @@
     <div class="row align-items-center gy-4">
         <div class="col-md-6 text-center">
             <img src="{{ asset('images/logo-banana-phone.jpg') }}"
-                 alt="{{ __('messages.homeLogoAlt') }}"
+                 alt="{{ __('home.homeLogoAlt') }}"
                  class="img-fluid rounded shadow"
                  style="max-height: 350px;">
         </div>
 
         <div class="col-md-6">
-            <h1 class="display-4 fw-bold">{{ __('messages.homeTitle') }}</h1>
+            <h1 class="display-4 fw-bold">{{ __('home.homeTitle') }}</h1>
             <p class="lead text-secondary">
-                {{ __('messages.homeSubtitle') }}
+                {{ __('home.homeSubtitle') }}
             </p>
 
             <div class="d-flex gap-2 flex-wrap">
                 <a href="{{ route('phone.index') }}" class="btn btn-dark">
-                    {{ __('messages.viewCatalogButton') }}
+                    {{ __('home.viewCatalogButton') }}
                 </a>
             </div>
         </div>
@@ -28,17 +28,17 @@
     <hr class="my-5">
 
     <div class="text-center mb-4">
-        <h2 class="fw-bold">{{ __('messages.whyChooseUsTitle') }}</h2>
-        <p class="text-secondary">{{ __('messages.whyChooseUsSubtitle') }}</p>
+        <h2 class="fw-bold">{{ __('home.whyChooseUsTitle') }}</h2>
+        <p class="text-secondary">{{ __('home.whyChooseUsSubtitle') }}</p>
     </div>
 
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{ __('messages.premiumDevicesTitle') }}</h5>
+                    <h5 class="card-title">{{ __('home.premiumDevicesTitle') }}</h5>
                     <p class="card-text">
-                        {{ __('messages.premiumDevicesDescription') }}
+                        {{ __('home.premiumDevicesDescription') }}
                     </p>
                 </div>
             </div>
@@ -47,9 +47,9 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{ __('messages.securePurchaseTitle') }}</h5>
+                    <h5 class="card-title">{{ __('home.securePurchaseTitle') }}</h5>
                     <p class="card-text">
-                        {{ __('messages.securePurchaseDescription') }}
+                        {{ __('home.securePurchaseDescription') }}
                     </p>
                 </div>
             </div>
@@ -58,9 +58,9 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{ __('messages.qualityServiceTitle') }}</h5>
+                    <h5 class="card-title">{{ __('home.qualityServiceTitle') }}</h5>
                     <p class="card-text">
-                        {{ __('messages.qualityServiceDescription') }}
+                        {{ __('home.qualityServiceDescription') }}
                     </p>
                 </div>
             </div>
@@ -70,16 +70,16 @@
     <hr class="my-5">
 
     <div class="text-center">
-        <h2 class="fw-bold">{{ __('messages.featuredProductsTitle') }}</h2>
-        <p class="text-secondary mb-4">{{ __('messages.featuredProductsSubtitle') }}</p>
+        <h2 class="fw-bold">{{ __('home.featuredProductsTitle') }}</h2>
+        <p class="text-secondary mb-4">{{ __('home.featuredProductsSubtitle') }}</p>
 
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">{{ __('messages.featuredIphoneTitle') }}</h5>
-                        <p class="card-text">{{ __('messages.featuredIphoneDescription') }}</p>
-                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('messages.viewMoreButton') }}</a>
+                        <h5 class="card-title">{{ __('home.featuredIphoneTitle') }}</h5>
+                        <p class="card-text">{{ __('home.featuredIphoneDescription') }}</p>
+                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('home.viewMoreButton') }}</a>
                     </div>
                 </div>
             </div>
@@ -87,9 +87,9 @@
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">{{ __('messages.featuredSamsungTitle') }}</h5>
-                        <p class="card-text">{{ __('messages.featuredSamsungDescription') }}</p>
-                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('messages.viewMoreButton') }}</a>
+                        <h5 class="card-title">{{ __('home.featuredSamsungTitle') }}</h5>
+                        <p class="card-text">{{ __('home.featuredSamsungDescription') }}</p>
+                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('home.viewMoreButton') }}</a>
                     </div>
                 </div>
             </div>
@@ -97,9 +97,9 @@
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">{{ __('messages.featuredAccessoriesTitle') }}</h5>
-                        <p class="card-text">{{ __('messages.featuredAccessoriesDescription') }}</p>
-                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('messages.viewMoreButton') }}</a>
+                        <h5 class="card-title">{{ __('home.featuredAccessoriesTitle') }}</h5>
+                        <p class="card-text">{{ __('home.featuredAccessoriesDescription') }}</p>
+                        <a href="{{ route('phone.index') }}" class="btn btn-dark">{{ __('home.viewMoreButton') }}</a>
                     </div>
                 </div>
             </div>

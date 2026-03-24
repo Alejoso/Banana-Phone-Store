@@ -7,7 +7,7 @@
         <div class="col-lg-8">
             <div class="card shadow-sm">
                 <div class="card-header text-center">
-                    <h2 class="mb-0">{{ __('messages.registerTitle') }}</h2>
+                    <h2 class="mb-0">{{ __('auth.registerTitle') }}</h2>
                 </div>
 
                 @if ($errors->any())
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">{{ __('messages.userName') }}</label>
+                                    <label for="name" class="form-label">{{ __('user.userName') }}</label>
                                     <input
                                         id="name"
                                         type="text"
@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">{{ __('messages.emailTitle') }}</label>
+                                    <label for="email" class="form-label">{{ __('user.emailTitle') }}</label>
                                     <input
                                         id="email"
                                         type="email"
@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="national_id" class="form-label">{{ __('messages.userNationalId') }}</label>
+                                    <label for="national_id" class="form-label">{{ __('user.userNationalId') }}</label>
                                     <input
                                         id="national_id"
                                         type="text"
@@ -80,7 +80,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="first_name" class="form-label">{{ __('messages.userFirstName') }}</label>
+                                    <label for="first_name" class="form-label">{{ __('user.userFirstName') }}</label>
                                     <input
                                         id="first_name"
                                         type="text"
@@ -96,7 +96,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="last_name" class="form-label">{{ __('messages.userLastName') }}</label>
+                                    <label for="last_name" class="form-label">{{ __('user.userLastName') }}</label>
                                     <input
                                         id="last_name"
                                         type="text"
@@ -114,7 +114,7 @@
 
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="phone_number" class="form-label">{{ __('messages.userPhoneNumber') }}</label>
+                                    <label for="phone_number" class="form-label">{{ __('user.userPhoneNumber') }}</label>
                                     <input
                                         id="phone_number"
                                         type="text"
@@ -130,7 +130,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="birthday" class="form-label">{{ __('messages.userBirthday') }}</label>
+                                    <label for="birthday" class="form-label">{{ __('user.userBirthday') }}</label>
                                     <input
                                         id="birthday"
                                         type="date"
@@ -146,7 +146,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="address" class="form-label">{{ __('messages.userAddress') }}</label>
+                                    <label for="address" class="form-label">{{ __('user.userAddress') }}</label>
                                     <input
                                         id="address"
                                         type="text"
@@ -162,7 +162,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">{{ __('messages.passwordTitle') }}</label>
+                                    <label for="password" class="form-label">{{ __('user.passwordTitle') }}</label>
                                     <input
                                         id="password"
                                         type="password"
@@ -179,7 +179,7 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="password_confirmation" class="form-label">{{ __('messages.confirmPasswordTitle') }}</label>
+                                    <label for="password_confirmation" class="form-label">{{ __('user.confirmPasswordTitle') }}</label>
                                     <input
                                         id="password_confirmation"
                                         type="password"
@@ -194,11 +194,11 @@
 
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <a href="{{ route('login') }}" class="btn btn-outline-secondary">
-                                {{ __('messages.backToLoginButton') }}
+                                {{ __('button.backToLoginButton') }}
                             </a>
 
                             <button type="submit" class="btn btn-dark">
-                                {{ __('messages.registerTitle') }}
+                                {{ __('auth.registerTitle') }}
                             </button>
                         </div>
                     </form>

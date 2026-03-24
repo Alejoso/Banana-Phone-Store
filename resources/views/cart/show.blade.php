@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container py-4">
-    <h2 class="mb-4">{{ __('messages.invoicePreviewTitle') }}</h2>
+    <h2 class="mb-4">{{ __('cart.invoicePreviewTitle') }}</h2>
 
     @if($viewData['cartProducts']->isEmpty())
         <div class="alert alert-info">
-            {{ __('messages.cartIsEmptyTitle') }}
+            {{ __('cart.cartIsEmptyTitle') }}
         </div>
     @else
         <form action="{{ route('purchase.purchase') }}" method="POST">
@@ -20,24 +20,24 @@
                                 <div>
                                     <h5 class="mb-1">{{ $phone->getName() }}</h5>
                                     <p class="mb-1 text-muted">
-                                        {{ __('messages.brandTitle') }}: {{ $phone->getBrand() }}
+                                        {{ __('phone.brandTitle') }}: {{ $phone->getBrand() }}
                                     </p>
                                     <p class="mb-1 text-muted">
-                                        {{ __('messages.priceTitle') }}: ${{ $phone->getPrice() }}
+                                        {{ __('phone.priceTitle') }}: ${{ $phone->getPrice() }}
                                     </p>
                                     <p class="mb-1 text-muted">
-                                        {{ __('messages.quantityTitle') }}:
+                                        {{ __('cart.quantityTitle') }}:
                                         {{ $viewData['cartProductData'][$phone->getId()] ?? 0 }}
                                     </p>
                                     <p class="mb-0 fw-bold">
-                                        {{ __('messages.subtotalTitle') }}:
+                                        {{ __('cart.subtotalTitle') }}:
                                         ${{ $phone->getPrice() * ($viewData['cartProductData'][$phone->getId()] ?? 0) }}
                                     </p>
                                 </div>
 
                                 <div class="text-end">
                                     <span class="badge bg-secondary px-3 py-2 rounded-pill">
-                                        {{ __('messages.readOnlyPreviewTitle') }}
+                                        {{ __('cart.readOnlyPreviewTitle') }}
                                     </span>
                                 </div>
                             </div>
@@ -51,10 +51,10 @@
                     <div class="row g-3 align-items-end">
                         <div class="col-12 col-md-6">
                             <label class="form-label fw-semibold">
-                                {{ __('messages.selectPaymentAccountTitle') }}
+                                {{ __('cart.selectPaymentAccountTitle') }}
                             </label>
                             <select name="savingsAccount" class="form-select" required>
-                                <option value="">{{ __('messages.selectAnOptionTitle') }}</option>
+                                <option value="">{{ __('common.selectAnOptionTitle') }}</option>
                                 @foreach ($viewData['savingsAccounts'] as $savingsAccount)
                                     <option value="{{ $savingsAccount->getId() }}">
                                         {{ $savingsAccount->getType() }}
@@ -65,7 +65,7 @@
 
                         <div class="col-12 col-md-6 text-md-end">
                             <h4 class="mb-0">
-                                {{ __('messages.totalTitle') }}: ${{ $viewData['total'] }}
+                                {{ __('cart.totalTitle') }}: ${{ $viewData['total'] }}
                             </h4>
                         </div>
                     </div>
@@ -74,11 +74,11 @@
 
             <div class="mt-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <a href="{{ route('cart.index') }}" class="btn btn-outline-secondary">
-                    {{ __('messages.backButton') }}
+                    {{ __('button.backButton') }}
                 </a>
 
                 <button type="submit" class="btn btn-success">
-                    {{ __('messages.confirmPurchaseButton') }}
+                    {{ __('button.confirmPurchaseButton') }}
                 </button>
             </div>
         </form>

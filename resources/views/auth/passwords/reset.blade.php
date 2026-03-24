@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>{{ __('messages.resetPasswordTitle') }}</h1>
+<h1>{{ __('auth.resetPasswordTitle') }}</h1>
 
 <form method="POST" action="{{ route('password.update') }}">
 
@@ -11,7 +11,7 @@
     <input type="hidden" name="token" value="{{ $token }}">
 
     <div>
-        <label for="email">{{ __('messages.emailAddressTitle') }}</label>
+        <label for="email">{{ __('auth.emailAddressTitle') }}</label>
 
         <input 
             id="email" 
@@ -29,7 +29,7 @@
     </div>
 
     <div>
-        <label for="password">{{ __('messages.passwordTitle') }}</label>
+        <label for="password">{{ __('auth.passwordTitle') }}</label>
 
         <input 
             id="password" 
@@ -45,7 +45,7 @@
     </div>
 
     <div>
-        <label for="password-confirm">{{ __('messages.confirmPasswordTitle') }}</label>
+        <label for="password-confirm">{{ __('auth.confirmPasswordTitle') }}</label>
 
         <input 
             id="password-confirm" 
@@ -57,7 +57,7 @@
     </div>
 
     <button type="submit">
-        {{ __('messages.resetPasswordTitle') }}
+        {{ __('auth.resetPasswordTitle') }}
     </button>
 
 </form>

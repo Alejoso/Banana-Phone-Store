@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.invoices') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('invoice.invoicesTitle') }}</h2>
 
 <div class="table-responsive">
     <table class="table table-dark table-hover align-middle">
 
         <thead>
             <tr class="text-warning">
-                <th>{{ __('messages.idLabel') }}</th>
-                <th>{{ __('messages.dateTitle') }}</th>
-                <th>{{ __('messages.userLabel') }}</th>
-                <th>{{ __('messages.officeNameTitle') }}</th>
-                <th class="text-end">{{ __('messages.actionsLabel') }}</th>
+                <th>{{ __('common.idLabel') }}</th>
+                <th>{{ __('common.dateTitle') }}</th>
+                <th>{{ __('common.userLabel') }}</th>
+                <th>{{ __('office.officeNameTitle') }}</th>
+                <th class="text-end">{{ __('common.actionsLabel') }}</th>
             </tr>
         </thead>
 
@@ -28,12 +28,12 @@
 
                     <a href="{{ route('admin.invoice.show', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-warning">
-                        {{ __('messages.viewButton') }}
+                        {{ __('button.viewButton') }}
                     </a>
 
                     <a href="{{ route('admin.invoice.edit', ['id'=> $invoice->getId()]) }}" 
                        class="btn btn-sm btn-outline-light">
-                        {{ __('messages.editButton') }}
+                        {{ __('button.editButton') }}
                     </a>
 
                     <form action="{{ route('admin.invoice.destroy', ['id'=> $invoice->getId()]) }}" 
@@ -43,7 +43,7 @@
                         @method('DELETE')
 
                         <button class="btn btn-sm btn-danger">
-                            {{ __('messages.deleteButton') }}
+                            {{ __('button.deleteButton') }}
                         </button>
                     </form>
 

@@ -2,23 +2,23 @@
 
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.officeDetails') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('office.officeDetails') }}</h2>
 
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
 
         <div class="mb-3">
-            <h5 class="text-secondary">{{ __('messages.nameLabel') }}</h5>
+            <h5 class="text-secondary">{{ __('common.nameLabel') }}</h5>
             <p class="fs-5">{{ $viewData['office']->getName() }}</p>
         </div>
 
         <div class="mb-3">
-            <h5 class="text-secondary">{{ __('messages.addressTitle') }}</h5>
+            <h5 class="text-secondary">{{ __('office.addressTitle') }}</h5>
             <p>{{ $viewData['office']->getAddress() }}</p>
         </div>
 
         <div class="mb-4">
-            <h5 class="text-secondary">{{ __('messages.managerTitle') }}</h5>
+            <h5 class="text-secondary">{{ __('office.managerTitle') }}</h5>
             <p>{{ $viewData['office']->getManagerName() }}</p>
         </div>
 
@@ -26,7 +26,7 @@
 
             <a href="{{ route('admin.office.edit', $viewData['office']->getId()) }}" 
                class="btn btn-outline-warning">
-                {{ __('messages.editButton') }}
+                {{ __('button.editButton') }}
             </a>
 
             <form action="{{ route('admin.office.destroy', $viewData['office']->getId()) }}" 
@@ -35,13 +35,13 @@
                 @method('DELETE')
 
                 <button type="submit" class="btn btn-danger">
-                    {{ __('messages.deleteButton') }}
+                    {{ __('button.deleteButton') }}
                 </button>
             </form>
 
             <a href="{{ route('admin.office.index') }}" 
                class="btn btn-outline-light">
-                {{ __('messages.backButton') }}
+                {{ __('button.backButton') }}
             </a>
 
         </div>

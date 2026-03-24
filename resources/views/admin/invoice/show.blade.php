@@ -3,7 +3,7 @@
 @section('content')
 
 <h2 class="mb-4 text-warning">
-    {{ __('messages.invoiceLabel') }} #{{ $viewData['invoice']->getId() }}
+    {{ __('invoice.invoiceLabel') }} #{{ $viewData['invoice']->getId() }}
 </h2>
 
 <div class="card bg-dark border-secondary text-light mb-4">
@@ -13,21 +13,21 @@
 
             <div class="col-md-4">
                 <p>
-                    <span class="text-secondary">{{ __('messages.dateTitle') }}:</span>
+                    <span class="text-secondary">{{ __('common.dateTitle') }}:</span>
                     {{ $viewData['invoice']->getDate() }}
                 </p>
             </div>
 
             <div class="col-md-4">
                 <p>
-                    <span class="text-secondary">{{ __('messages.userLabel') }}:</span>
+                    <span class="text-secondary">{{ __('common.userLabel') }}:</span>
                     {{ $viewData['invoice']->user->getName() }}
                 </p>
             </div>
 
             <div class="col-md-4">
                 <p>
-                    <span class="text-secondary">{{ __('messages.officeNameTitle') }}:</span>
+                    <span class="text-secondary">{{ __('office.officeNameTitle') }}:</span>
                     {{ $viewData['invoice']->office->getName() }}
                 </p>
             </div>
@@ -40,18 +40,18 @@
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
 
-        <h5 class="mb-3 text-warning">{{ __('messages.invoiceLines') }}</h5>
+        <h5 class="mb-3 text-warning">{{ __('common.invoiceLines') }}</h5>
 
         <div class="table-responsive">
             <table class="table table-dark table-hover align-middle">
 
                 <thead>
                     <tr class="text-warning">
-                        <th>{{ __('messages.phoneLabel') }}</th>
-                        <th>{{ __('messages.quantityTitle') }}</th>
-                        <th>{{ __('messages.unitPriceTitle') }}</th>
-                        <th>{{ __('messages.discountTitle') }}</th>
-                        <th>{{ __('messages.subtotalTitle') }}</th>
+                        <th>{{ __('common.phoneLabel') }}</th>
+                        <th>{{ __('cart.quantityTitle') }}</th>
+                        <th>{{ __('invoiceLine.unitPriceTitle') }}</th>
+                        <th>{{ __('invoiceLine.discountTitle') }}</th>
+                        <th>{{ __('cart.subtotalTitle') }}</th>
                     </tr>
                 </thead>
 
@@ -80,7 +80,7 @@
         </div>
 
         <div class="text-end mt-3">
-            <h4 class="text-warning">{{ __('messages.totalTitle') }}: ${{ $total }}</h4>
+            <h4 class="text-warning">{{ __('cart.totalTitle') }}: ${{ $total }}</h4>
         </div>
 
     </div>
@@ -90,7 +90,7 @@
 
     <a href="{{ route('admin.invoice.edit', $viewData['invoice']->getId()) }}" 
        class="btn btn-outline-warning">
-        {{ __('messages.editButton') }}
+        {{ __('button.editButton') }}
     </a>
 
     <form action="{{ route('admin.invoice.destroy', $viewData['invoice']->getId()) }}" method="POST">
@@ -98,13 +98,13 @@
         @method('DELETE')
 
         <button type="submit" class="btn btn-danger">
-            {{ __('messages.deleteButton') }}
+            {{ __('button.deleteButton') }}
         </button>
     </form>
 
     <a href="{{ route('admin.invoice.index') }}" 
        class="btn btn-outline-light">
-        {{ __('messages.backButton') }}
+        {{ __('button.backButton') }}
     </a>
 
 </div>

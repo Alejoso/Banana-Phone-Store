@@ -2,8 +2,8 @@
 @section('content')
 <div class="container py-5">
     <div class="mb-4 text-center">
-        <p class="text-muted mb-2">{{ __('messages.ourOfficesTitle') }}</p>
-        <h1 class="fw-bold">{{ __('messages.findOurStoresTitle') }}</h1>
+        <p class="text-muted mb-2">{{ __('office.ourOfficesTitle') }}</p>
+        <h1 class="fw-bold">{{ __('office.findOurStoresTitle') }}</h1>
     </div>
 
     <div class="row g-4">
@@ -21,7 +21,7 @@
                                 href="{{ route('office.show', ['id' => $office->getId()]) }}"
                                 class="btn btn-dark rounded-pill w-100"
                             >
-                                {{ __('messages.viewOfficeButton') }}
+                                {{ __('office.viewOfficeButton') }}
                             </a>
                         </div>
                     </div>

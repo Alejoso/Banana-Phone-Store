@@ -7,8 +7,8 @@
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                 <div class="card-body p-4 p-lg-5">
                     <div class="text-center mb-4">
-                        <h1 class="fw-bold mb-2">{{ __('messages.loginTitle') }}</h1>
-                        <p class="text-muted mb-0">{{ __('messages.loginSubtitle') }}</p>
+                        <h1 class="fw-bold mb-2">{{ __('auth.loginTitle') }}</h1>
+                        <p class="text-muted mb-0">{{ __('auth.loginSubtitle') }}</p>
                     </div>
 
                     <form method="POST" action="{{ route('login') }}">
@@ -16,7 +16,7 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">
-                                {{ __('messages.emailAddressTitle') }}
+                                {{ __('auth.emailAddressTitle') }}
                             </label>
 
                             <input
@@ -39,7 +39,7 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label fw-semibold">
-                                {{ __('messages.passwordTitle') }}
+                                {{ __('auth.passwordTitle') }}
                             </label>
 
                             <input
@@ -68,17 +68,17 @@
                             >
 
                             <label class="form-check-label text-muted" for="remember">
-                                {{ __('messages.rememberMeTitle') }}
+                                {{ __('auth.rememberMeTitle') }}
                             </label>
                         </div>
 
                         <div class="d-grid gap-2 mb-3">
                             <button type="submit" class="btn btn-dark rounded-pill py-2">
-                                {{ __('messages.loginButton') }}
+                                {{ __('button.loginButton') }}
                             </button>
 
                             <a href="{{ route('register') }}" class="btn btn-outline-dark rounded-pill py-2">
-                                {{ __('messages.registerButton') }}
+                                {{ __('button.registerButton') }}
                             </a>
                         </div>
                     </form>
@@ -86,7 +86,7 @@
                     @if (Route::has('password.request'))
                         <div class="text-center">
                             <a href="{{ route('password.request') }}" class="text-decoration-none">
-                                {{ __('messages.forgotPasswordTitle') }}
+                                {{ __('auth.forgotPasswordTitle') }}
                             </a>
                         </div>
                     @endif

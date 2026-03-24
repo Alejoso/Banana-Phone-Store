@@ -21,10 +21,10 @@
                             <div class="mb-4">
                                 <h1 class="fw-bold mb-2">{{ $viewData['phone']->getName() }}</h1>
                                 <p class="text-muted mb-1">
-                                    <span class="fw-semibold">{{__('messages.brandTitle')}}:</span> {{ $viewData['phone']->getBrand() }}
+                                    <span class="fw-semibold">{{__('phone.brandTitle')}}:</span> {{ $viewData['phone']->getBrand() }}
                                 </p>
                                 <p class="text-muted mb-0">
-                                    <span class="fw-semibold">{{__('messages.memoryTitle')}}:</span> {{ $viewData['phone']->getMemory() }}
+                                    <span class="fw-semibold">{{__('phone.memoryTitle')}}:</span> {{ $viewData['phone']->getMemory() }}
                                 </p>
                             </div>
 
@@ -35,26 +35,26 @@
                             <div class="row g-3 mb-4">
                                 <div class="col-12 col-sm-6">
                                     <div class="bg-light rounded-4 p-3 h-100">
-                                        <p class="text-muted mb-1">{{ __('messages.batteryTitle') }}</p>
+                                        <p class="text-muted mb-1">{{ __('phone.batteryTitle') }}</p>
                                         <h6 class="fw-semibold mb-0">{{ $viewData['phone']->getBattery() }}</h6>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="bg-light rounded-4 p-3 h-100">
-                                        <p class="text-muted mb-1">{{ __('messages.ramTitle') }}</p>
+                                        <p class="text-muted mb-1">{{ __('phone.ramTitle') }}</p>
                                         <h6 class="fw-semibold mb-0">{{ $viewData['phone']->getRam() }}</h6>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="bg-light rounded-4 p-3 h-100">
-                                        <p class="text-muted mb-1">{{ __('messages.stockTitle') }}</p>
+                                        <p class="text-muted mb-1">{{ __('phone.stockTitle') }}</p>
                                         <h6 class="fw-semibold mb-0">{{ $viewData['phone']->getQuantity() }}
                                         @if ($viewData['phone']->getQuantity() > 1)
-                                            {{ __('messages.unitTitle') }}s
+                                            {{ __('phone.unitTitle') }}s
                                         @else
-                                            {{ __('messages.unitTitle') }}
+                                            {{ __('phone.unitTitle') }}
                                         @endif
                                         </h6>
                                     </div>
@@ -62,7 +62,7 @@
 
                                 <div class="col-12 col-sm-6">
                                     <div class="bg-light rounded-4 p-3 h-100">
-                                        <p class="text-muted mb-1">{{ __('messages.availableInTitle') }}</p>
+                                        <p class="text-muted mb-1">{{ __('phone.availableInTitle') }}</p>
                                         <h6 class="fw-semibold mb-0">
                                             <a href="{{ route('office.show' , $viewData['phone']->getOffice()->getId()) }}">{{ $viewData['phone']->getOffice()->getName() }}</a>
                                         </h6>
@@ -72,10 +72,10 @@
 
                             <div class="mt-auto">
                                 <a href="{{ route('phone.index') }}" class="btn btn-outline-dark rounded-pill px-4 me-2">
-                                    {{ __('messages.backButton') }}
+                                    {{ __('button.backButton') }}
                                 </a>
                                 <a href="{{ route('cart.add', ['id' => $viewData['phone']->getId()]) }}" class="btn btn-dark rounded-pill px-4">
-                                    {{ __('messages.addToCartButton') }}
+                                    {{ __('cart.addToCartButton') }}
                                 </a>
                             </div>
                         </div>

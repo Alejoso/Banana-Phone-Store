@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.createOffice') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('office.createOffice') }}</h2>
 
 <div class="card bg-dark border-secondary text-light">
     <div class="card-body">
@@ -11,48 +11,48 @@
 
             <!-- Name -->
             <div class="mb-3">
-                <label class="form-label text-secondary">{{ __('messages.nameLabel') }}</label>
+                <label class="form-label text-secondary">{{ __('common.nameLabel') }}</label>
                 <input 
                     type="text" 
                     class="form-control bg-dark text-light border-secondary" 
                     name="name" 
                     value="{{ old('name') }}"
-                    placeholder="{{ __('messages.enterNamePlaceholder') }}"
+                    placeholder="{{ __('office.enterNamePlaceholder') }}"
                 >
             </div>
 
             <!-- Address -->
             <div class="mb-3">
-                <label class="form-label text-secondary">{{ __('messages.addressTitle') }}</label>
+                <label class="form-label text-secondary">{{ __('office.addressTitle') }}</label>
                 <input 
                     type="text" 
                     class="form-control bg-dark text-light border-secondary" 
                     name="address" 
                     value="{{ old('address') }}"
-                    placeholder="{{ __('messages.enterAddressPlaceholder') }}"
+                    placeholder="{{ __('office.enterAddressPlaceholder') }}"
                 >
             </div>
 
             <!-- Manager -->
             <div class="mb-3">
-                <label class="form-label text-secondary">{{ __('messages.managerNameTitle') }}</label>
+                <label class="form-label text-secondary">{{ __('office.managerNameTitle') }}</label>
                 <input 
                     type="text" 
                     class="form-control bg-dark text-light border-secondary" 
                     name="manager_name" 
                     value="{{ old('manager_name') }}"
-                    placeholder="{{ __('messages.enterManagerNamePlaceholder') }}"
+                    placeholder="{{ __('office.enterManagerNamePlaceholder') }}"
                 >
             </div>
 
             <!-- Actions -->
             <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-warning">
-                    {{ __('messages.saveButton') }}
+                    {{ __('button.saveButton') }}
                 </button>
 
                 <a href="{{ route('admin.office.index') }}" class="btn btn-outline-light">
-                    {{ __('messages.cancelButton') }}
+                    {{ __('button.cancelButton') }}
                 </a>
             </div>
 

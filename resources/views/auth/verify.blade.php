@@ -2,22 +2,22 @@
 
 @section('content')
 
-<h1>{{ __('messages.verifyEmailAddressTitle') }}</h1>
+<h1>{{ __('auth.verifyEmailAddressTitle') }}</h1>
 
 @if (session('resent'))
-    <p>{{ __('messages.verificationLinkSentMessage') }}</p>
+    <p>{{ __('auth.verificationLinkSentMessage') }}</p>
 @endif
 
-<p>{{ __('messages.checkEmailForVerificationMessage') }}</p>
+<p>{{ __('auth.checkEmailForVerificationMessage') }}</p>
 
-<p>{{ __('messages.didNotReceiveEmailMessage') }}:</p>
+<p>{{ __('auth.didNotReceiveEmailMessage') }}:</p>
 
 <form method="POST" action="{{ route('verification.resend') }}">
 
     @csrf
 
     <button type="submit">
-        {{ __('messages.requestAnotherVerificationButton') }}
+        {{ __('auth.requestAnotherVerificationButton') }}
     </button>
 
 </form>

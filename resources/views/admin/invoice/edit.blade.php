@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 class="mb-4 text-warning">{{ __('messages.editInvoice') }}</h2>
+<h2 class="mb-4 text-warning">{{ __('invoice.editInvoice') }}</h2>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -25,7 +25,7 @@
 
                 <!-- Date -->
                 <div class="col-md-4 mb-3">
-                    <label class="form-label text-secondary">{{ __('messages.dateTitle') }}</label>
+                    <label class="form-label text-secondary">{{ __('common.dateTitle') }}</label>
                     <input 
                         type="date" 
                         name="date" 
@@ -39,7 +39,7 @@
 
                 <!-- User -->
                 <div class="col-md-4 mb-3">
-                    <label class="form-label text-secondary">{{ __('messages.userLabel') }}</label>
+                    <label class="form-label text-secondary">{{ __('common.userLabel') }}</label>
                     <select 
                         name="user_id" 
                         class="form-select bg-dark text-light border-secondary @error('user_id') is-invalid @enderror"
@@ -60,7 +60,7 @@
 
                 <!-- Office -->
                 <div class="col-md-4 mb-3">
-                    <label class="form-label text-secondary">{{ __('messages.officeNameTitle') }}</label>
+                    <label class="form-label text-secondary">{{ __('office.officeNameTitle') }}</label>
                     <select 
                         name="office_id" 
                         class="form-select bg-dark text-light border-secondary @error('office_id') is-invalid @enderror"
@@ -83,12 +83,12 @@
 
             <div class="d-flex gap-2 mt-3">
                 <button type="submit" class="btn btn-warning">
-                    {{ __('messages.updateButton') }}
+                    {{ __('button.updateButton') }}
                 </button>
 
                 <a href="{{ route('admin.invoice.show', $viewData['invoice']->getId()) }}" 
                    class="btn btn-outline-light">
-                    {{ __('messages.cancelButton') }}
+                    {{ __('button.cancelButton') }}
                 </a>
             </div>
 
