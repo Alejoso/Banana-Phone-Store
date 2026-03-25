@@ -1,59 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Banana Phone Store - Laravel Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Description
 
-## About Laravel
+Banana Phone Store is a web application developed using Laravel. It allows the management of different system entities through CRUD operations, user authentication, and role-based access control.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The system includes:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- User authentication (login)
+- Role management (Admin and User)
+- Admin panel
+- Management of multiple entities
+- Relational database imported from a `.sql` file
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Requirements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Before running the project, make sure you have installed:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP >= 8.1
+- Composer
+- MySQL
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Installation and Setup
 
-### Premium Partners
+### 1. Start XAMPP
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Before running the project, make sure to start XAMPP and enable the required services:
 
-## Contributing
+- Open the XAMPP Control Panel
+- Start the following modules:
+  - Apache
+  - MySQL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2. Clone the repository
 
-## Code of Conduct
+```bash
+git clone (https://github.com/Alejoso/Banana-Phone-Store.git)
+cd Banana-Phone-Store
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. Install dependencies 
+```bash
+composer install
+```
 
-## Security Vulnerabilities
+### 4. Configure environment variables
+```bash
+cp .env.example .env
+```
+Then configure the database connection in the .env file:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=banana_phone_store
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## License
+### 5. Import the database
+The project includes a file named:
+* banana_phone_store.sql
+This file contains the database structure and initial data.
+Import using MySQL console:
+```bash
+mysql -u root -p
+```
+Then execute:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```SQL
+CREATE DATABASE banana_phone_store;
+USE banana_phone_store;
+SOURCE path/to/banana_phone_store.sql;
+```
+
+(If you don’t have a password, just press Enter)
+
+### 6. Generate application key
+```bash
+php artisan key:generate
+```
+
+### 7. Run the server
+```bash
+php artisan serve
+```
+
+### Main route 
+Once the server is running, access the application at:
+* http://127.0.0.1:8000/
+
+### Test Users Created 
+You can log in using the following preloaded users:
+
+#### Admin
+* Email: alejotiradoramirez@gmail.com
+* Password: 123
+
+#### User 1
+* Email: empanadaspor1000@gmail.com
+* Password: alejito1234
+
+#### User 2 
+* Email: empanadaspor2000@gmail.com
+* Password: alejito1234
+
+### Project Structure
+* app/Models → Eloquent models
+* app/Http/Controllers → Controllers
+* resources/views → Blade views
+* routes/web.php → Application routes
+* database/ → Database files
+
+### Notes 
+
+It is not necessary to run migrations, since the database is imported from the .sql file.
+Make sure MySQL is running before importing the database.
+
