@@ -57,7 +57,7 @@
                                 <option value="">{{ __('common.selectAnOptionTitle') }}</option>
                                 @foreach ($viewData['savingsAccounts'] as $savingsAccount)
                                     <option value="{{ $savingsAccount->getId() }}">
-                                        {{ $savingsAccount->getType() }}
+                                        {{ $savingsAccount->getName() }}
                                     </option>
                                 @endforeach
                             </select>

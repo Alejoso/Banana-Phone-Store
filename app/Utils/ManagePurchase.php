@@ -6,6 +6,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceLine;
 use App\Models\Phone;
 use App\Models\SavingsAccount;
+use Brick\Math\BigInteger;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
@@ -87,19 +88,19 @@ class ManagePurchase
         foreach ($invoiceLinesData as $lineData) {
             if ($lineData['discount'] > 0) {
                 $totalAmount += $lineData['unit_price'] * $lineData['quantity'] / $lineData['discount'];
+            } else {
+                $totalAmount += $lineData['unit_price'] * $lineData['quantity'];
             }
-
-            $totalAmount += $lineData['unit_price'] * $lineData['quantity'];
         }
 
         $savingsAccount = SavingsAccount::findOrFail($savingsAccountId);
 
         // Get the user and validate if the balance is enough
-        if (($savingsAccount->getBalance() - $totalAmount) < 0) {
+        if ($savingsAccount->getBalance()->isLessThan(BigInteger::of($totalAmount))) {
             throw new Exception('The user does not have enough balance.');
         }
 
-        $savingsAccount->setBalance($savingsAccount->getBalance() - $totalAmount);
+        $savingsAccount->setBalance($savingsAccount->getBalance()->minus(BigInteger::of($totalAmount)));
         $savingsAccount->save();
     }
 

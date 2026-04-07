@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreOfficeRequest;
+use App\Http\Requests\Office\StoreOfficeRequest;
+use App\Http\Requests\Office\UpdateOfficeRequest;
 use App\Models\Office;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -13,7 +14,6 @@ class AdminOfficeController extends Controller
     public function index(): View
     {
         $viewData = [];
-
         $viewData['offices'] = Office::with(['phones', 'invoices'])->get();
 
         return view('admin.office.index')->with('viewData', $viewData);
@@ -37,7 +37,6 @@ class AdminOfficeController extends Controller
     public function save(StoreOfficeRequest $request): RedirectResponse
     {
         $validatedOfficeData = $request->validated();
-
         Office::create($validatedOfficeData);
 
         return redirect()->route('admin.office.index');
@@ -46,18 +45,15 @@ class AdminOfficeController extends Controller
     public function edit(int $id): View
     {
         $viewData = [];
-
         $viewData['office'] = Office::findOrFail($id);
 
         return view('admin.office.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreOfficeRequest $request, int $id): RedirectResponse
+    public function update(UpdateOfficeRequest $request, int $id): RedirectResponse
     {
         $office = Office::findOrFail($id);
-
         $validatedOfficeData = $request->validated();
-
         $office->update($validatedOfficeData);
 
         return redirect()->route('admin.office.show', $office->getId());
@@ -66,7 +62,6 @@ class AdminOfficeController extends Controller
     public function destroy(int $id): RedirectResponse
     {
         $office = Office::findOrFail($id);
-
         $office->delete();
 
         return redirect()->route('admin.office.index');
@@ -75,7 +70,6 @@ class AdminOfficeController extends Controller
     public function topOffices(): View
     {
         $viewData = [];
-
         $viewData['offices'] = Office::withCount('invoices')->orderBy('invoices_count', 'desc')->take(3)->get();
 
         return view('admin.office.topOffices')->with('viewData', $viewData);
