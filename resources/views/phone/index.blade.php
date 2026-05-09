@@ -40,7 +40,7 @@
                         </p>
 
                         <div class="mt-auto">
-                            <h4 class="fw-bold text-dark mb-3">${{ $phone->getPrice() }}</h4>
+                            <h4 class="fw-bold text-dark mb-3">${{ number_format($phone->getPrice() , 0 , "," , ".") }}</h4>
 
                             <div class="d-flex align-items-center gap-2">
                                 <a 

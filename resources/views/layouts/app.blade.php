@@ -29,7 +29,9 @@
                 <a class="nav-link active" href="{{ route('home.index') }}">{{ __('layout.homeNavTitle') }}</a>
                 <a class="nav-link active" href="{{ route('office.index') }}">{{ __('layout.viewOfficesButton') }}</a>
                 <a class="nav-link active" href="{{ route('phone.index') }}">{{ __('layout.viewPhonesButton') }}</a>
+                <a class="nav-link active" href="{{ route('alliedStoreProduct.index') }}">{{ __('layout.alliedStore') }}</a>
                 
+                <!--Cart icon with number of items-->
                 @if (auth()->check())
                     <a href="{{ route('cart.index') }}"
                     class="btn btn-light rounded-pill ms-lg-3 position-relative d-inline-flex align-items-center justify-content-center"
@@ -47,24 +49,46 @@
                     <a class="nav-link active" href="{{ route('user.show' , auth()->user()->getId()) }}">{{ __('layout.manageAccountButton') }}</a>
                 @endif
 
+                <!--Admin only for going back to admin view-->
                 @if (auth()->check() && auth()->user()->role === 'Admin')
                     <a class="nav-link active" href="{{ route('admin.home.index') }}">
                         {{ __('layout.adminPanelTitle') }}
                     </a>
                 @endif
 
-                
-
                 @if (!auth()->check())
                     <a class="nav-link active" href="{{ route('login') }}">{{ __('layout.loginButton') }}</a>
                 @endif
 
-                <form action="{{ route('language.switch') }}" method="POST" class="d-inline">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-light btn-sm">
-                        {{ app()->getLocale() === 'es' ? 'EN' : 'ES' }}
+                <!--Change language dropdown-->
+                <div class="dropdown d-inline">
+                    <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ strtoupper(app()->getLocale()) }}
                     </button>
-                </form>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <form action="{{ route('language.switch') }}" method="POST" class="m-0">
+                                @csrf
+                                <input type="hidden" name="locale" value="es">
+                                <button type="submit" 
+                                        class="dropdown-item {{ app()->getLocale() === 'es' ? 'active' : '' }}">
+                                    {{ __('layout.languageSpanish') }}
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{{ route('language.switch') }}" method="POST" class="m-0">
+                                @csrf
+                                <input type="hidden" name="locale" value="en">
+                                <button type="submit" 
+                                        class="dropdown-item {{ app()->getLocale() === 'en' ? 'active' : '' }}">
+                                    {{ __('layout.languageEnglish') }}
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
 
             </div>
         </div>

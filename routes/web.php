@@ -13,6 +13,8 @@ Route::get('/phone/{id}', 'App\Http\Controllers\PhoneController@show')->name('ph
 Route::get('/office', 'App\Http\Controllers\OfficeController@index')->name('office.index');
 Route::get('/office/{id}', 'App\Http\Controllers\OfficeController@show')->name('office.show');
 
+Route::get('/alliedStoreProduct' , 'App\Http\Controllers\AlliedStoreProductController@index')->name('alliedStoreProduct.index');
+
 Route::post('/language-switch', 'App\Http\Controllers\LanguageController@changeLanguage')->name('language.switch');
 
 // Authenticated user

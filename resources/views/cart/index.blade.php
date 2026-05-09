@@ -17,10 +17,10 @@
                             <div>
                                 <h5 class="mb-1">{{ $phone->getName() }}</h5>
                                 <p class="mb-1 text-muted">{{ __('phone.brandTitle') }}: {{ $phone->getBrand() }}</p>
-                                <p class="mb-1 text-muted">{{ __('phone.priceTitle')}}: ${{ $phone->getPrice() }}</p>
+                                <p class="mb-1 text-muted">{{ __('phone.priceTitle')}}: ${{ number_format($phone->getPrice() , 0 , "," , ".")  }}</p>
                                 <p class="mb-0 fw-bold">
                                     {{ __('cart.subtotalTitle') }}:
-                                    ${{ $phone->getPrice() * ($viewData['cartProductData'][$phone->getId()] ?? 0) }}
+                                    ${{ number_format( $phone->getPrice() * $viewData['cartProductData'][$phone->getId()] , 0 , "," , ".") ?? 0 }}
                                 </p>
                             </div>
 
@@ -49,7 +49,7 @@
         </div>
 
         <div class="mt-4 d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">{{__('cart.totalTitle')}}: ${{ $viewData['total'] }}</h4>
+            <h4 class="mb-0">{{__('cart.totalTitle')}}: ${{ number_format($viewData['total'] , 0 , "," , ".") }}</h4>
 
             <a href="{{ route('cart.removeAll') }}" class="btn btn-danger">
                 {{ __('button.removeAllButton') }}

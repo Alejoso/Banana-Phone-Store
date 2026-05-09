@@ -17,5 +17,8 @@ return [
     'viewPhonesButton' => 'Ver teléfonos',
     'manageAccountButton' => 'Administrar cuenta',
     'loginButton' => 'Iniciar sesión',
+    'alliedStore' => 'Productos de una tienda aliada!',
+    'languageEnglish' => 'Ingles',
+    'languageSpanish' => 'Español',
 
 ];

@@ -29,7 +29,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <h2 class="fw-bold text-dark">${{ $viewData['phone']->getPrice() }}</h2>
+                                <h2 class="fw-bold text-dark">${{ number_format($viewData['phone']->getPrice() , 0 , "," , ".") }}</h2>
                             </div>
 
                             <div class="row g-3 mb-4">

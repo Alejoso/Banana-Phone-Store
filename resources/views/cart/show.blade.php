@@ -23,7 +23,7 @@
                                         {{ __('phone.brandTitle') }}: {{ $phone->getBrand() }}
                                     </p>
                                     <p class="mb-1 text-muted">
-                                        {{ __('phone.priceTitle') }}: ${{ $phone->getPrice() }}
+                                        {{ __('phone.priceTitle') }}: ${{ number_format($phone->getPrice() , 0 , "," , ".") }}
                                     </p>
                                     <p class="mb-1 text-muted">
                                         {{ __('cart.quantityTitle') }}:
@@ -31,7 +31,7 @@
                                     </p>
                                     <p class="mb-0 fw-bold">
                                         {{ __('cart.subtotalTitle') }}:
-                                        ${{ $phone->getPrice() * ($viewData['cartProductData'][$phone->getId()] ?? 0) }}
+                                        ${{ number_format($phone->getPrice() * $viewData['cartProductData'][$phone->getId()] , 0 , "," , ".") ?? 0 }}
                                     </p>
                                 </div>
 
@@ -65,7 +65,7 @@
 
                         <div class="col-12 col-md-6 text-md-end">
                             <h4 class="mb-0">
-                                {{ __('cart.totalTitle') }}: ${{ $viewData['total'] }}
+                                {{ __('cart.totalTitle') }}: ${{ number_format($viewData['total'] , 0 , "," , ".")  }}
                             </h4>
                         </div>
                     </div>
