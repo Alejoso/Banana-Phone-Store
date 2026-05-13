@@ -30,7 +30,8 @@
                 <a class="nav-link active" href="{{ route('office.index') }}">{{ __('layout.viewOfficesButton') }}</a>
                 <a class="nav-link active" href="{{ route('phone.index') }}">{{ __('layout.viewPhonesButton') }}</a>
                 <a class="nav-link active" href="{{ route('alliedStoreProduct.index') }}">{{ __('layout.alliedStore') }}</a>
-                
+                <a class="nav-link active" href="{{ route('currency.index') }}">{{ __('currency.currencyNavTitle') }}</a>
+                               
                 <!--Cart icon with number of items-->
                 @if (auth()->check())
                     <a href="{{ route('cart.index') }}"
