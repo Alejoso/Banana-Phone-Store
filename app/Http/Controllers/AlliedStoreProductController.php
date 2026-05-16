@@ -11,7 +11,7 @@ class AlliedStoreProductController extends Controller
     {
         $viewData = [];
 
-        $alliedStoreProductsResponse = Http::get('http://127.0.0.1:8001/api/mostPurchasedPhones');
+        $alliedStoreProductsResponse = Http::get('http://astro-tech-store.duckdns.org/api/products');
         $viewData['alliedStoreProducts'] = $alliedStoreProductsResponse->json();
 
         return view('alliedStoreProduct.index')->with('viewData', $viewData);

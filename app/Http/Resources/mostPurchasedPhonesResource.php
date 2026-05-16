@@ -3,7 +3,7 @@
 namespace App\Http\Resources; 
 
 use Illuminate\Http\Request; 
-use Illuminate\Http\Resources\Json\JsonResource; 
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class mostPurchasedPhonesResource extends JsonResource 
 { 
@@ -20,6 +20,7 @@ class mostPurchasedPhonesResource extends JsonResource
             'quantity' => $this->getQuantity(), 
             'office_id' => $this->getOfficeId(),
             'image' => $this->getImage(),
+            'url' => Env('APP_URL') . 'phone/' . $this->getId(),
         ]; 
     } 
 } 
