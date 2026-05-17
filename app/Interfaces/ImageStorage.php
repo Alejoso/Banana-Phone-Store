@@ -7,4 +7,5 @@ use Illuminate\Http\Request;
 interface ImageStorage
 {
     public function store(Request $request): ?string;
+    public function url(?string $path): ?string;
 }

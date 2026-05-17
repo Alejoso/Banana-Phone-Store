@@ -11,7 +11,10 @@ class ImageServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(ImageStorage::class, function () {
-            return new ImageLocalStorage;
+            return match (config('services.image_storage.driver', 'local')) {
+                's3' => new S3ImageStorage(),
+                default => new ImageLocalStorage(),
+            };
         });
     }
 }

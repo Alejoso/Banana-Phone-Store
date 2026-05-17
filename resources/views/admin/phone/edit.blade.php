@@ -18,7 +18,7 @@
                 <!-- Image preview -->
                 <div class="col-md-4 text-center mb-3">
                     <img 
-                        src="{{ asset('storage/'.$viewData['phone']->getImage()) }}" 
+                        src="{{ app(App\Interfaces\ImageStorage::class)->url($phone->getImage()) }}" 
                         class="img-fluid rounded mb-3"
                         style="max-height: 200px;"
                     >

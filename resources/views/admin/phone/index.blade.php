@@ -31,7 +31,7 @@
 
                 <td>
                     <img 
-                        src="{{ asset('storage/'.$phone->getImage()) }}" 
+                        src="{{ app(App\Interfaces\ImageStorage::class)->url($phone->getImage()) }}" 
                         width="60"
                         class="rounded"
                     >

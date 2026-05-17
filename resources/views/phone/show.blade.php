@@ -8,7 +8,7 @@
                     <div class="col-md-5">
                         <div class="bg-light d-flex align-items-center justify-content-center h-100 p-4" style="min-height: 420px;">
                             <img 
-                                src="{{ asset('storage/'.$viewData['phone']->getImage()) }}" 
+                                src="{{ app(App\Interfaces\ImageStorage::class)->url($phone->getImage()) }}" 
                                 alt="{{ $viewData['phone']->getName() }}"
                                 class="img-fluid"
                                 style="max-height: 360px; object-fit: contain;"

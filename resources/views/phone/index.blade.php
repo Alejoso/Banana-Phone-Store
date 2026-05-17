@@ -21,7 +21,7 @@
                 <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="bg-light d-flex align-items-center justify-content-center p-4" style="height: 260px;">
                         <img 
-                            src="{{ asset('storage/'.$phone->getImage()) }}" 
+                            src="{{ app(App\Interfaces\ImageStorage::class)->url($phone->getImage()) }}" 
                             alt="{{ $phone->getName() }}"
                             class="img-fluid"
                             style="max-height: 220px; object-fit: contain;"
