@@ -1,0 +1,37 @@
+services:
+  app:
+    image: ssloan07/banana-phone-store:latest
+    container_name: banana-phone-store-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    env_file:
+      - .env.compose
+    depends_on:
+      - mysql
+    networks:
+      - banana-phone-network
+
+  mysql:
+    image: mysql:8.4
+    container_name: banana-phone-store-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: banana_phone_store
+      MYSQL_USER: docker_user
+      MYSQL_PASSWORD: dockerpass
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports:
+      - "3307:3306"
+    volumes:
+      - banana_phone_mysql_data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - banana-phone-network
+
+volumes:
+  banana_phone_mysql_data:
+
+networks:
+  banana-phone-network:
+    driver: bridge

@@ -6,7 +6,7 @@ use App\Interfaces\ImageStorage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class S3ImageStorage implements ImageStorage
+class ImageS3Storage implements ImageStorage
 {
     public function store(Request $request): ?string
     {
