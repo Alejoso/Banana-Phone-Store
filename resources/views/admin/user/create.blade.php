@@ -80,7 +80,7 @@
 
                             <option value="">{{ __('user.selectRoleTitle') }}</option>
 
-                            <option value="admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>
+                            <option value="Admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>
                                 {{ __('user.adminRoleTitle') }}
                             </option>
 
