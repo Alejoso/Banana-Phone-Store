@@ -44,7 +44,6 @@ class CartController extends Controller
         $quantity = $request->input('quantity');
 
         $cartProductData[$id] = $quantity;
-
         $request->session()->put('cart_product_data', $cartProductData);
 
         return redirect()->route('cart.index');

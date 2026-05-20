@@ -5,7 +5,12 @@
     <h1>{{ __('savingsAccount.createSavingsAccount') }}</h1>
     <form method="POST" action="{{ route('savingsAccount.save') }}">
         @csrf
-        
+
+        <div class="mb-3">
+            <label class="form-label">{{ __('savingsAccount.savingsAccountName') }}</label>
+            <input type="text" name="name" value="{{ old('name') }}" class="form-control">
+        </div>
+
         <label>{{ __('savingsAccount.savingsAccountType') }}</label>
         <div class="mb-3">
             <select name="type">

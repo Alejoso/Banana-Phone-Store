@@ -6,6 +6,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceLine;
 use App\Models\Phone;
 use App\Models\SavingsAccount;
+use Brick\Math\BigInteger;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
@@ -14,22 +15,21 @@ use Illuminate\Support\Facades\Validator;
 
 class ManagePurchase
 {
-    private function createInvoiceLineData(array $cartProductData, array $phoneIds, Collection $phones): array
+    public function createInvoiceLineData(array $cartProductData, Collection $phones): array
     {
         // Create every invoice line to be stored in a variable
         $invoiceLinesData = [];
 
-        foreach ($phoneIds as $phoneId) {
+        foreach ($phones as $phone) {
 
-            $phone = $phones->get($phoneId);
-            $phoneQuantity = $cartProductData[$phoneId];
+            $phoneQuantity = $cartProductData[$phone->getID()];
 
             $invoiceLinesData[] = [
                 'unit_price' => $phone->getPrice(),
                 'discount' => 0,
                 'quantity' => $phoneQuantity,
                 'reason' => 'None',
-                'phone_id' => $phoneId,
+                'phone_id' => $phone->getID(),
             ];
         }
 
@@ -57,16 +57,19 @@ class ManagePurchase
         $invoicesByOffice = [];
         // Iterate every invoice line
         foreach ($invoiceLinesData as $lineData) {
+
             $phone = $phones[$lineData['phone_id']];
             $officeId = $phone->getOffice()->getId();
 
             // Create an invoice only once by office
             if (! isset($invoicesByOffice[$officeId])) {
+
                 $invoicesByOffice[$officeId] = Invoice::create([
                     'date' => now()->toDateTimeString(),
                     'user_id' => auth()->user()->getId(),
                     'office_id' => $officeId,
                 ]);
+                
             }
 
             // Create the respective invoice line
@@ -87,23 +90,24 @@ class ManagePurchase
         foreach ($invoiceLinesData as $lineData) {
             if ($lineData['discount'] > 0) {
                 $totalAmount += $lineData['unit_price'] * $lineData['quantity'] / $lineData['discount'];
+            } else {
+                $totalAmount += $lineData['unit_price'] * $lineData['quantity'];
             }
-
-            $totalAmount += $lineData['unit_price'] * $lineData['quantity'];
         }
 
         $savingsAccount = SavingsAccount::findOrFail($savingsAccountId);
 
         // Get the user and validate if the balance is enough
-        if (($savingsAccount->getBalance() - $totalAmount) < 0) {
+        if ($savingsAccount->getBalance()->isLessThan(BigInteger::of($totalAmount))) {
             throw new Exception('The user does not have enough balance.');
         }
 
-        $savingsAccount->setBalance($savingsAccount->getBalance() - $totalAmount);
+        $savingsAccount->setBalance($savingsAccount->getBalance()->minus(BigInteger::of($totalAmount)));
         $savingsAccount->save();
     }
 
-    private function decreaseInventory(array $invoiceLinesData, Collection $phones): void
+    // This function validates that there is enough stock for each phone
+    public function validateInventory(array $invoiceLinesData, Collection $phones): void
     {
         foreach ($invoiceLinesData as $lineData) {
             $phone = $phones[$lineData['phone_id']];
@@ -112,6 +116,14 @@ class ManagePurchase
             if (($phone->getQuantity() - $lineData['quantity']) < 0) {
                 throw new Exception('Not enough stock for '.$phone->getName());
             }
+        }
+    }
+
+    // This function only decreases the quantity
+    private function decreaseInventory(array $invoiceLinesData, Collection $phones): void
+    {
+        foreach ($invoiceLinesData as $lineData) {
+            $phone = $phones[$lineData['phone_id']];
 
             $phone->setQuantity($phone->getQuantity() - $lineData['quantity']);
             $phone->save();
@@ -132,7 +144,7 @@ class ManagePurchase
         $phones = Phone::whereIn('id', $phoneIds)->get()->keyBy('id');
 
         // Get the structure of an invoice line from session
-        $invoiceLinesData = $this->createInvoiceLineData($cartProductData, $phoneIds, $phones);
+        $invoiceLinesData = $this->createInvoiceLineData($cartProductData, $phones);
 
         // Validate each invoice line
         $validator = $this->validate($invoiceLinesData);
@@ -143,11 +155,14 @@ class ManagePurchase
             return back();
         }
 
-        // Validate and decrease inventory
-        $this->decreaseInventory($invoiceLinesData, $phones);
+        // Validate inventory stock
+        $this->validateInventory($invoiceLinesData, $phones);
 
         // Validate and decrease balance
         $this->decreaseBalance($invoiceLinesData, $request->input('savingsAccount'));
+
+        // Decrease the inventory
+        $this->decreaseInventory($invoiceLinesData, $phones);
 
         // Create invoices on DB for each office related to the purchase, then relate the invoiceLines with the created invoice
         $this->createInvoiceAndInvoiceLines($invoiceLinesData, $phones);

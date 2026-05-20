@@ -6,6 +6,11 @@
     <form method="POST" action="{{ route('savingsAccount.update' , ['id' => $viewData['savingsAccount']->getId()]) }}">
         @csrf
         @method('PUT')
+        
+        <div class="mb-3">
+            <label class="form-label">{{ __('savingsAccount.name') }}</label>
+            <input type="text" name="name" value="{{ $viewData['savingsAccount']->getName() }}" class="form-control">
+        </div>
 
         <div class="mb-3">
             <label class="form-label">{{ __('savingsAccount.savingsAccountType') }}</label>

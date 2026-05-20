@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
@@ -36,11 +36,8 @@ class UserController extends Controller
     public function save(StoreUserRequest $request): RedirectResponse
     {
         $validatedUserData = $request->validated();
-
         $validatedUserData['password'] = Hash::make($validatedUserData['password']);
-
         User::create($validatedUserData);
-
         session()->flash('success', __('messages.userCreatedSuccessfully'));
 
         return redirect()->route('user.index');
@@ -49,7 +46,6 @@ class UserController extends Controller
     public function edit(int $id): View
     {
         $viewData = [];
-
         $viewData['user'] = User::findOrFail($id);
 
         return view('user.edit')->with('viewData', $viewData);
@@ -58,7 +54,6 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, int $id): RedirectResponse
     {
         $user = User::findOrFail($id);
-
         $validatedUserData = $request->validated();
 
         if (! empty($validatedUserData['password'])) {
@@ -68,7 +63,6 @@ class UserController extends Controller
         }
 
         $user->update($validatedUserData);
-
         session()->flash('success', __('messages.userUpdatedSuccessfully'));
 
         return redirect()->route('user.show', ['id' => $id]);

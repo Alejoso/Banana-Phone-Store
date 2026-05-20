@@ -13,5 +13,7 @@ return [
     'savingsOption' => 'Savings',
     'checkingOption' => 'Checking',
     'otherOption' => 'Other',
+    'savingsAccountName'=> 'Give a name to the account',
+    'name'=> 'Name',
 
 ];

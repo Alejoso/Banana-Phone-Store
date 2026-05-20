@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('savings_accounts', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->integer('balance')->default(0);
+            $table->string('name');
+            $table->bigInteger('balance')->default(0);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });

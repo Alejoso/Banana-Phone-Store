@@ -19,4 +19,14 @@ class ImageLocalStorage implements ImageStorage
 
         return null;
     }
+
+    public function url(?string $path): ?string
+    {
+        if (!$path) {
+            
+            return null;
+        }
+
+        return asset('storage/' . $path);
+    }
 }

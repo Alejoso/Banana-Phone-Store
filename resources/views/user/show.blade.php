@@ -93,7 +93,7 @@
                         <table class="table table-striped table-hover align-middle mb-0">
                             <thead>
                                 <tr>
-                                    <th>{{ __('common.idLabel') }}</th>
+                                    <th>{{ __('savingsAccount.name') }}</th>
                                     <th>{{ __('savingsAccount.savingsAccountType') }}</th>
                                     <th>{{ __('common.actionsLabel') }}</th>
                                 </tr>
@@ -101,7 +101,7 @@
                             <tbody>
                                 @forelse ($viewData['savingsAccounts'] as $savingsAccount)
                                     <tr>
-                                        <td>{{ $savingsAccount->getId() }}</td>
+                                        <td>{{ $savingsAccount->getName() }}</td>
                                         <td>{{ $savingsAccount->getType() }}</td>
                                         <td>
                                             <div class="d-flex flex-wrap gap-2">

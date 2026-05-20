@@ -6,7 +6,7 @@
     <ul class="list-group">
 
         <li class="list-group-item">
-            <strong>{{ __('common.idLabel') }}:</strong> {{ $viewData['savingsAccount']->getId() }}
+            <strong>{{ __('savingsAccount.name') }}:</strong> {{ $viewData['savingsAccount']->getName() }}
         </li>
 
         <li class="list-group-item">

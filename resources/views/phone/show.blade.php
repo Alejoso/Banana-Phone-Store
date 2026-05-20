@@ -8,7 +8,7 @@
                     <div class="col-md-5">
                         <div class="bg-light d-flex align-items-center justify-content-center h-100 p-4" style="min-height: 420px;">
                             <img 
-                                src="{{ asset('storage/'.$viewData['phone']->getImage()) }}" 
+                                src="{{ app(App\Interfaces\ImageStorage::class)->url($viewData['phone']->getImage()) }}"
                                 alt="{{ $viewData['phone']->getName() }}"
                                 class="img-fluid"
                                 style="max-height: 360px; object-fit: contain;"
@@ -29,7 +29,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <h2 class="fw-bold text-dark">${{ $viewData['phone']->getPrice() }}</h2>
+                                <h2 class="fw-bold text-dark">${{ number_format($viewData['phone']->getPrice() , 0 , "," , ".") }}</h2>
                             </div>
 
                             <div class="row g-3 mb-4">

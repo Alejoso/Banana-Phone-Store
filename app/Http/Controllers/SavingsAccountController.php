@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSavingsAccountRequest;
+use App\Http\Requests\SavingsAccount\StoreSavingsAccountRequest;
+use App\Http\Requests\SavingsAccount\UpdateSavingsAccountRequest;
 use App\Models\SavingsAccount;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -54,7 +55,7 @@ class SavingsAccountController extends Controller
         return view('savingsAccount.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreSavingsAccountRequest $request, int $id): RedirectResponse
+    public function update(UpdateSavingsAccountRequest $request, int $id): RedirectResponse
     {
         $savingsAccount = SavingsAccount::findOrFail($id);
         $savingsAccount->update($request->validated());

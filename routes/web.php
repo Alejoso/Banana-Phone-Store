@@ -10,8 +10,12 @@ Route::get('/phone', 'App\Http\Controllers\PhoneController@index')->name('phone.
 Route::get('/phone/search', 'App\Http\Controllers\PhoneController@search')->name('phone.search');
 Route::get('/phone/{id}', 'App\Http\Controllers\PhoneController@show')->name('phone.show');
 
+Route::get('/currency', 'App\Http\Controllers\CurrencyController@index')->name('currency.index');
+
 Route::get('/office', 'App\Http\Controllers\OfficeController@index')->name('office.index');
 Route::get('/office/{id}', 'App\Http\Controllers\OfficeController@show')->name('office.show');
+
+Route::get('/alliedStoreProduct' , 'App\Http\Controllers\AlliedStoreProductController@index')->name('alliedStoreProduct.index');
 
 Route::post('/language-switch', 'App\Http\Controllers\LanguageController@changeLanguage')->name('language.switch');
 

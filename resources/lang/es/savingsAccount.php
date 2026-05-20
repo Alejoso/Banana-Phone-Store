@@ -13,5 +13,7 @@ return [
     'savingsOption' => 'Ahorros',
     'checkingOption' => 'Corriente',
     'otherOption' => 'Otro',
+    'savingsAccountName'=> 'Dale un nombre a la cuenta',
+    'name'=> 'Nombre',
 
 ];

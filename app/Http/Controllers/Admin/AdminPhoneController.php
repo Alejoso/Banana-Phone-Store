@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePhoneRequest;
+use App\Http\Requests\Phone\StorePhoneRequest;
+use App\Http\Requests\Phone\UpdatePhoneRequest;
 use App\Interfaces\ImageStorage;
 use App\Models\Office;
 use App\Models\Phone;
@@ -15,7 +16,6 @@ class AdminPhoneController extends Controller
     public function index(): View
     {
         $viewData = [];
-
         $viewData['phones'] = Phone::with(['office'])->get();
 
         return view('admin.phone.index')->with('viewData', $viewData);
@@ -24,7 +24,6 @@ class AdminPhoneController extends Controller
     public function show(int $id): View
     {
         $viewData = [];
-
         $viewData['phone'] = Phone::with(['office'])->findOrFail($id);
 
         return view('admin.phone.show')->with('viewData', $viewData);
@@ -33,7 +32,6 @@ class AdminPhoneController extends Controller
     public function create(): View
     {
         $viewData = [];
-
         $viewData['offices'] = Office::all();
 
         return view('admin.phone.create')->with('viewData', $viewData);
@@ -42,9 +40,7 @@ class AdminPhoneController extends Controller
     public function edit(int $id): View
     {
         $viewData = [];
-
         $viewData['phone'] = Phone::findOrFail($id);
-
         $viewData['offices'] = Office::all();
 
         return view('admin.phone.edit')->with('viewData', $viewData);
@@ -53,7 +49,6 @@ class AdminPhoneController extends Controller
     public function save(StorePhoneRequest $request): RedirectResponse
     {
         $validatedPhoneData = $request->validated();
-
         $storeInterface = app(ImageStorage::class);
 
         if ($request->hasFile('image')) {
@@ -65,12 +60,10 @@ class AdminPhoneController extends Controller
         return redirect()->route('admin.phone.index');
     }
 
-    public function update(StorePhoneRequest $request, int $id): RedirectResponse
+    public function update(UpdatePhoneRequest $request, int $id): RedirectResponse
     {
         $phone = Phone::findOrFail($id);
-
         $validatedPhoneData = $request->validated();
-
         $storeInterface = app(ImageStorage::class);
 
         if ($request->hasFile('image')) {
@@ -85,7 +78,6 @@ class AdminPhoneController extends Controller
     public function destroy(int $id): RedirectResponse
     {
         $phone = Phone::findOrFail($id);
-
         $phone->delete();
 
         return redirect()->route('admin.phone.index');
@@ -94,7 +86,6 @@ class AdminPhoneController extends Controller
     public function mostPurchased(): View
     {
         $viewData = [];
-
         $viewData['phones'] = Phone::withSum('invoiceLines', 'quantity')->orderBy('invoice_lines_sum_quantity', 'desc')->take(5)->get();
 
         return view('admin.phone.mostPurchased')->with('viewData', $viewData);

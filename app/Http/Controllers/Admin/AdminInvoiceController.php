@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreInvoiceRequest;
+use App\Http\Requests\Invoice\UpdateInvoiceRequest;
 use App\Models\Invoice;
 use App\Models\Office;
 use App\Models\User;
@@ -24,8 +24,8 @@ class AdminInvoiceController extends Controller
     {
         $viewData = [];
         $viewData['invoice'] = Invoice::with(['user', 'office', 'invoiceLines'])->findOrFail($id);
-
         $total = 0;
+
         foreach ($viewData['invoice']->getInvoiceLines() as $invoiceLine) {
             $total += $invoiceLine->getUnitPrice() * $invoiceLine->getQuantity() * (1 - $invoiceLine->getDiscount());
         }
@@ -38,7 +38,6 @@ class AdminInvoiceController extends Controller
     public function edit(int $id): View
     {
         $viewData = [];
-
         $viewData['invoice'] = Invoice::with(['user', 'office'])->findOrFail($id);
         $viewData['users'] = User::all();
         $viewData['offices'] = Office::all();
@@ -46,11 +45,10 @@ class AdminInvoiceController extends Controller
         return view('admin.invoice.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreInvoiceRequest $request, int $id): RedirectResponse
+    public function update(UpdateInvoiceRequest $request, int $id): RedirectResponse
     {
         $invoice = Invoice::with(['user', 'office'])->findOrFail($id);
         $validatedInvoiceData = $request->validated();
-
         $invoice->update($validatedInvoiceData);
 
         return redirect()->route('admin.invoice.show', $invoice->getId());

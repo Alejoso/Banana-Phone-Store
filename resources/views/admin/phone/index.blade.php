@@ -30,8 +30,8 @@
                 <td>{{ $phone->getId() }}</td>
 
                 <td>
-                    <img 
-                        src="{{ asset('storage/'.$phone->getImage()) }}" 
+                    <img   
+                        src="{{ app(App\Interfaces\ImageStorage::class)->url($phone->getImage()) }}"
                         width="60"
                         class="rounded"
                     >
